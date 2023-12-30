@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block content %}
+<div class="container mx-auto mt-20 py-2">
+    <h1 class="text-white font-bold">{{group.name}}</h1>
+    <div class="grid grid-cols-2 gap-5 p-4">
+      <div class="gap-5 bg-white rounded-lg shadow dark:bg-gray-800 p-4">
+        <h2 class="text-3xl font-bold leading-none text-gray-900 dark:text-white mb-4">Files</h2>
+        <ul class="list-group">
+          {% for file in files %}
+            <li class="list-group-item py-3 sm:py-4">
+              <div class="flex items-center">
+                <div class="inline-flex items-center justify-between px-4 py-2 bg-gray-200 rounded-lg text-white dark:text-gray-300">
+                  <span>- {{ file.file.name|slice:"8:" }}</span>
+                </div>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
+      <div class="col-span-1 md:col-span-2 bg-white rounded-lg shadow dark:bg-gray-800 p-4">
+        <h2 class="text-3xl font-bold leading-none text-gray-900 dark:text-white mb-4">Members</h2>
+        <ul class="list-group">
+          {% for user in users %}
+            <li class="list-group-item py-3 sm:py-4">
+              <div class="flex items-center">
+                <div class="inline-flex items-center justify-between px-4 py-2 bg-gray-200 rounded-lg text-white dark:text-gray-300">
+                  <span>- {{ user.username }}</span>
+                </div>
+              </div>
+            </li> 
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    <form method="POST" class="form-group my-form p-4">
+      {% csrf_token %}
+      <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Edit Group Name</label>
+      {% render_field form.name class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Group x" %} 
+      <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Edit Members (press ctrl to select multi)</label>
+      {% render_field form.users class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %}
+      <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
+      <button type="submit" value="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Checkout</button>
+      <a href="{% url 'delete-group' group.id %}" style="background-color: #ff3333;" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:hover:bg-blue-700 focus:outline-none dark:focus-ring-blue-800">Delete Group</a>
+    </form>
+  </div>
+  
+{% endblock %}

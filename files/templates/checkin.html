@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block content %}
+<div style="padding-top: 20px; padding-bottom: 20px; display: flex; align-items: center; justify-content: center">
+<ul>
+    <div class="mb-5">
+        <a href="/download-file/{{file.id}}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus-ring-blue-800">Download</a>
+        <a href="{% url 'generate-report' file.id %}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus-ring-blue-800">Generate Report</a>
+        <a href="{% url 'delete-file' file.id %}" style="background-color: #ff3333;" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus-ring-blue-800">Delete</a>
+    </div>
+    <form method="POST" class="form-group my-form" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% if file.owner == user %}
+        <div  class="mb-5">
+            <label for="groupes" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Change Group</label>
+            {% render_field form.group class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 " %} 
+        </div>
+        {% endif %}
+        <div class="mb-5 text-white">
+            {% render_field form.file class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="file_input_help" id="file_input" type="file" %}
+        </div>
+        <div class="mb-5"> 
+            <button type="submit" value="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Checkout</button>
+        </div>
+    </form>
+    <div id="timer-widget" class="text-4xl font-bold text-white">
+        <span id="timer-minutes" class="mr-1">00</span>:<span id="timer-seconds">15</span>
+    </div>
+</ul>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+    function checkFileStatus(fileId) {
+    $.ajax({
+        url: '/check-file-status/' + fileId,  // Update with the correct URL
+        success: function(response) {
+            console.log('RUNNN');
+            if (response.is_free) {
+                alert('File has been automatically checked out.');
+                window.location.href = '/';  // Redirect to home
+                clearInterval(intervalId);  // Stop polling
+            }
+        }
+    });
+}
+
+var fileId = "{{ file.id }}";  // Replace with actual file ID
+var intervalId = setInterval(function() { checkFileStatus(fileId); }, 5000);  // Poll every 5 seconds
+</script>
+<script>
+    (function() {
+      var minutesLabel = document.getElementById("timer-minutes");
+      var secondsLabel = document.getElementById("timer-seconds");
+      var totalSeconds = 15;  // Change this to the desired total seconds (e.g., 300 for 5 minutes)
+    
+      setInterval(setTime, 1000);
+    
+      function setTime() {
+        if (totalSeconds <= 0) {
+          clearInterval(setTime);
+          return;
+        }
+    
+        --totalSeconds;
+        secondsLabel.innerHTML = pad(totalSeconds % 60);
+        minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+      }
+    
+      function pad(val) {
+        var valString = val + "";
+        if (valString.length < 2) {
+          return "0" + valString;
+        } else {
+          return valString;
+        }
+      }
+    })();
+</script>
+{% endblock %}

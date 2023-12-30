@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+        {% if searched %}
+            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Search Results</span>
+            {% for file in files %}
+            <div style="padding-top: 20px; padding-bottom: 20px; display: flex; align-items: center; justify-content: center">
+                <div class="w-full max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    <p class="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white">{{file.file.name|slice:"8:"}}</p>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">owner: {{file.owner}}</p>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">group: {{file.group}}</p>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">created: {{file.created}}</p>  
+                    {% if file.is_free %}
+                    <p class="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white">
+                        <svg width="20" height="20" viewBox="0 0 20 20">
+                        <path d="M10 20c5.523 0 10-4.477 10-10S15.523 0 10 0 0 4.477 0 10s4.477 10 10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm5-9l-5-3L5 11V8l5 3 5-3v3z" fill="#00cc44"/> 
+                        </svg>
+                        Free
+                    </p>
+                    {% else %}
+                    <p class="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white">
+                        <svg width="20" height="20" viewBox="0 0 20 20">
+                        <path d="M10 20c5.523 0 10-4.477 10-10S15.523 0 10 0 0 4.477 0 10s4.477 10 10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16z" fill="#ff3333"/>
+                        <path d="M15.728 9.686l-5-5a1.003 1.003 0 0 0-1.414 0l-5 5a1.002 1.002 0 0 0 1.414 1.414L10 8.586l4.314 4.314a1.002 1.002 0 0 0 1.414-1.414z" fill="#ffffff"/>
+                        </svg>
+                        Reserved by {{file.filelock.user.username}}
+                    </p>          
+                    {% endif %}
+                    <a href="{% url 'checkin' file.id %}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        Check in
+                        <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Type Something To Search</span>
+        {% endif %}
+
+
+{% endblock %}
