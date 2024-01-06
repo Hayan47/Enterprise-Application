@@ -2,116 +2,62 @@ from django.shortcuts import render, redirect
 from .forms import FileForm, GroupForm
 from .models import File, FileLock, Group, Checkin, Checkout
 from django.http import HttpResponse, JsonResponse
-from django.db import transaction
-from django.contrib import messages
-from django_celery_beat.models import PeriodicTask, ClockedSchedule
-from datetime import timedelta
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.cache import cache_page
 import logging
+from django.contrib import messages
+from django_celery_beat.models import PeriodicTask, ClockedSchedule
+from datetime import timedelta
+from .services import FileService, GroupService
 
 logger = logging.getLogger(__name__) # files.views
 
 
 @login_required
 def home(request):
-    files = File.objects.all()
+    file_service = FileService()
+    files = file_service.home()
     if request.method == 'POST':
         bulkCheckin(request=request)
     return render(request, 'home.html', {'files':files})
 
+
 @login_required
 def bulkCheckin(request):
     selected_files_ids= request.POST.getlist('selected_files')
-    selected_files = File.objects.filter(id__in=selected_files_ids)
-    locked_files = FileLock.objects.filter(file_id__in=selected_files)
-    if locked_files.exists():
-        # for lock in locked_files:
-        #     if not lock.user == request.user:
-                locked_file_names = [lock.file.file.name for lock in locked_files]
-                messages.success(request, f"The following files are locked: {', '.join(locked_file_names)}")
-                return redirect('home')
-    else:
-        print('1')
-        for file in selected_files:
-            lock_file(file, request.user)
-            lock = FileLock.objects.get(file=file, user=request.user)
-            file.is_free = False
-            file.save()
-            Checkin.objects.create(file=file, user=request.user)
-            # Schedule the automatic check-out task after one hour
-            clocked, _ = ClockedSchedule.objects.get_or_create(clocked_time=lock.locked_at + timedelta(seconds=15))
-            task_name = f'files.tasks.automatic_check_out_{lock.id}' 
-            mytask = PeriodicTask.objects.create(
-                clocked=clocked,
-                name=task_name,
-                task='files.tasks.automatic_check_out',
-                args=[lock.id],
-                one_off=True
-            )
+    file_service = FileService()
+    file_service.set_user(request.user)
+    try:
+        file = file_service.bulkCheckin(selected_files_ids)
+    except ValueError as e:
+        messages.error(request, e)
+        return redirect('home')
+    
 
 @login_required
 def checkin(request, id):
-        file = File.objects.get(id=id)
+        file_service = FileService()
+        file_service.set_user(request.user)
+        try:
+            file = file_service.checkinFile(id)
+        except ValueError as e:
+            messages.error(request, e)
+            return redirect('home')
         form = FileForm(instance=file) 
         if request.method == 'POST':
+            file_service.checkoutFile(file)
             form = FileForm(request.POST, request.FILES, instance=file)
-            lock = FileLock.objects.get(file=file, user=request.user)
-            PeriodicTask.objects.filter(name=f'files.tasks.automatic_check_out_{lock.id}', args=[lock.id]).delete()
-            unlock_file(file, request.user)
-            file.is_free = True 
-            file.save()
-            c = Checkin.objects.filter(file=file, user=request.user).order_by('-created').first()
-            Checkout.objects.create(checkin=c)
             if form.is_valid():
                 form.save()
                 return redirect('home')         
-        if FileLock.objects.filter(file=file).exclude(user=request.user).exists():
-            messages.success(request, 'File is checked in by another user')
-            return redirect('home')
-        if file.group is not None:
-            if not file.group.users.filter(id=request.user.id).exists():
-                messages.success(request, 'you can not checkin file in this group')
-                return redirect('home')
-        if not FileLock.objects.filter(file=file).exists():
-            Checkin.objects.create(file=file, user=request.user)
-            lock_file(file, request.user)
-            lock = FileLock.objects.get(file=file, user=request.user)
-            file.is_free = False
-            file.save()
-            # Schedule the automatic check-out task after one hour
-            clocked, _ = ClockedSchedule.objects.get_or_create(clocked_time=lock.locked_at + timedelta(seconds=15))
-            task_name = f'files.tasks.automatic_check_out_{lock.id}' 
-            mytask = PeriodicTask.objects.create(
-                clocked=clocked,
-                name=task_name,
-                task='files.tasks.automatic_check_out',
-                args=[lock.id],
-                one_off=True
-            )
         return render(request, 'checkin.html', {'form': form, 'file':file})
 
 
 def check_file_status(request, id):
-    file = File.objects.get(id=id)
+    file_service = FileService()
+    file = file_service.check_file_status(id)
     return JsonResponse({'is_free': file.is_free})
 
-@login_required
-def groupCheckin(request, id):
-    group = Group.objects.get(id=id)
-    files = group.file_set.all()
-    users = group.users.all()
-    form = GroupForm(instance=group)
-    if request.method == 'POST':
-        form = GroupForm(request.POST, instance=group)
-        if not form.is_valid():
-            print(form.errors)
-        if form.is_valid():
-            group = form.save(commit=False)
-            group.owner = request.user
-            form.save()
-            return redirect('all-groups')
-    return render(request, 'group_checkin.html', {'group': group, 'files':files, 'users':users, 'form':form})
 
 @login_required
 def addFile(request):
@@ -124,6 +70,46 @@ def addFile(request):
             form.save()
             return redirect('home')  
     return render(request, 'file_form.html', {'form': form})
+
+
+@login_required
+def downloadFile(request, id):
+    file_service = FileService()
+    response = file_service.downloadFile(id)
+    return response
+
+@login_required
+def deleteFile(request, id):
+    file = File.objects.get(id=id)
+    if request.method == 'POST':
+        file.delete()
+        return redirect('home')
+    return render(request, 'delete.html', {'obj': file})
+
+@login_required
+def generateReport(request, id):
+    file_service = FileService()
+    response = file_service.generateReport(id)
+    return response
+
+@login_required
+def groupCheckin(request, id):
+    group_service = GroupService()
+    group_service.set_user(request.user)
+    try:
+        group, files, users = group_service.groupCheckin(id)
+    except ValueError as e:
+        messages.error(request, e)
+        return redirect('all-groups')
+    form = GroupForm(instance=group)
+    if request.method == 'POST':
+        form = GroupForm(request.POST, instance=group)
+        if form.is_valid():
+            group = form.save(commit=False)
+            group.owner = request.user
+            form.save()
+            return redirect('all-groups')
+    return render(request, 'group_checkin.html', {'group': group, 'files':files, 'users':users, 'form':form})
 
 @login_required
 def addGroup(request):
@@ -141,31 +127,7 @@ def allGroups(request):
     groups = Group.objects.all()
     return render(request, 'all_groups.html', {'groups': groups})
 
-@transaction.atomic 
-def lock_file(file, user):
-    FileLock.objects.create(file=file, user=user)
 
-
-def unlock_file(file, user):
-    FileLock.objects.filter(file=file, user=user).delete()
-
-@login_required
-def downloadFile(request, id):
-    file = File.objects.get(id=id)
-    filename = file.file.name
-    with open('media/{}'.format(filename), mode='rb') as f:
-        file_contents = f.read()
-    response = HttpResponse(file_contents, content_type='application/octet-stream')
-    response['Content-Disposition'] = f'attachment; filename="{file.file.name}"'
-    return response
-
-@login_required
-def deleteFile(request, id):
-    file = File.objects.get(id=id)
-    if request.method == 'POST':
-        file.delete()
-        return redirect('home')
-    return render(request, 'delete.html', {'obj': file})
 
 @login_required
 def deleteGroup(request, id):
@@ -186,29 +148,7 @@ def search(request):
         files = File.objects.filter(file__icontains=searched)
     return render (request, 'search.html', {'searched':searched, 'files':files})
 
-@login_required
-def generateReport(request, id):
-    file = File.objects.get(id=id)
-    checkins = Checkin.objects.filter(file=file)
-    # Create the report content
-    report_content = f"Check-in Report for File: {file}\n\n"
-    for checkin in checkins:
-        report_content += f"User: {checkin.user}\n"
-        report_content += f"Check-in Time: {checkin.created}\n"
 
-        # Retrieve the associated check-out object, if it exists
-        checkout = Checkout.objects.filter(checkin=checkin).first()
-        if checkout:
-            report_content += f"Check-out Time: {checkout.created}\n"
-        else:
-            report_content += "Check-out Time: Not checked out\n"
-
-        report_content += "\n"
-
-    # Generate the response with the report content
-    response = HttpResponse(report_content, content_type='text/plain')
-    response['Content-Disposition'] = 'attachment; filename="checkin_report.txt"'
-    return response
 
 def favicon_view(request):
     return HttpResponse("")

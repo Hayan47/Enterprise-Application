@@ -5053,4 +5053,1282 @@
 2024-01-05 18:21:33,395: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
 2024-01-05 18:21:37,446: INFO Request: User: admin : GET /check-file-status/5
 2024-01-05 18:21:37,450: INFO Response: User: admin : GET /check-file-status/5 200
-                                                                                      
+                                                                                      2024-01-06 15:44:59,398: INFO Watching for file changes with StatReloader
+2024-01-06 15:45:02,081: INFO Request: User: admin : GET /
+2024-01-06 15:45:02,602: INFO Response: User: admin : GET / 200
+2024-01-06 15:45:03,099: INFO Request: User: admin : GET /__reload__/events/
+2024-01-06 15:45:03,099: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-06 15:45:06,450: INFO Request: User: admin : GET /
+2024-01-06 15:45:06,466: INFO Response: User: admin : GET / 200
+2024-01-06 15:45:06,670: INFO Request: User: admin : GET /__reload__/events/
+2024-01-06 15:45:06,670: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-06 15:45:11,036: INFO Request: User: admin : GET /checkin/5
+2024-01-06 15:45:11,318: INFO Response: User: admin : GET /checkin/5 200
+2024-01-06 15:45:11,524: INFO Request: User: admin : GET /favicon.ico
+2024-01-06 15:45:11,531: INFO Response: User: admin : GET /favicon.ico 200
+2024-01-06 15:45:12,414: INFO Request: User: admin : POST /checkin/5
+2024-01-06 15:45:12,535: ERROR Internal Server Error: /checkin/5
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 64, in checkin
+    file_service.checkout_file()
+TypeError: FileService.checkout_file() missing 1 required positional argument: 'file'
+2024-01-06 15:45:12,535: INFO Response: User: admin : POST /checkin/5 500
+2024-01-06 15:45:35,011: INFO D:\django projects\files_test\files\views.py changed, reloading.
+2024-01-06 15:45:37,519: INFO Watching for file changes with StatReloader
+2024-01-06 15:45:38,536: INFO Request: User: admin : GET /__reload__/events/
+2024-01-06 15:45:38,536: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-06 15:45:40,697: INFO Request: User: admin : POST /checkin/5
+2024-01-06 15:45:41,251: ERROR Internal Server Error: /checkin/5
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: UNIQUE constraint failed: files_filelock.file_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 64, in checkin
+    file_service.checkout_file(file)
+  File "D:\django projects\files_test\files\services.py", line 42, in checkout_file
+    file.lock_file(self.user)
+  File "C:\Program Files\Python312\Lib\contextlib.py", line 81, in inner
+    return func(*args, **kwds)
+           ^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\models.py", line 49, in lock_file
+    FileLock.objects.create(file=self, user=user)
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 877, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 1020, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 1061, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\sql\compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\debug_toolbar\panels\sql\tracking.py", line 252, in execute
+    return self._record(super().execute, sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\debug_toolbar\panels\sql\tracking.py", line 177, in _record
+    return method(sql, params)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: UNIQUE constraint failed: files_filelock.file_id
+2024-01-06 15:45:41,293: INFO Response: User: admin : POST /checkin/5 500
+2024-01-06 15:46:13,535: INFO Request: User: admin : GET /checkin/5
+2024-01-06 15:46:13,594: INFO Response: User: admin : GET /checkin/5 200
+2024-01-06 15:46:15,186: INFO Request: User: admin : GET /
+2024-01-06 15:46:15,296: INFO Response: User: admin : GET / 200
+2024-01-06 15:46:16,002: INFO Request: User: admin : GET /
+2024-01-06 15:46:16,055: INFO Response: User: admin : GET / 200
+2024-01-06 15:46:16,320: INFO Request: User: admin : GET /
+2024-01-06 15:46:16,364: INFO Response: User: admin : GET / 200
+2024-01-06 15:46:16,635: INFO Request: User: admin : GET /
+2024-01-06 15:46:16,680: INFO Response: User: admin : GET / 200
+2024-01-06 15:46:16,881: INFO Request: User: admin : GET /
+2024-01-06 15:46:16,918: INFO Response: User: admin : GET / 200
+2024-01-06 15:46:17,966: INFO Request: User: admin : GET /checkin/4
+2024-01-06 15:46:18,664: INFO Response: User: admin : GET /checkin/4 200
+2024-01-06 15:46:20,132: INFO Request: User: admin : POST /checkin/4
+2024-01-06 15:46:20,453: ERROR Internal Server Error: /checkin/4
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: UNIQUE constraint failed: files_filelock.file_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 64, in checkin
+    file_service.checkout_file(file)
+  File "D:\django projects\files_test\files\services.py", line 42, in checkout_file
+    file.lock_file(self.user)
+  File "C:\Program Files\Python312\Lib\contextlib.py", line 81, in inner
+    return func(*args, **kwds)
+           ^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\models.py", line 49, in lock_file
+    FileLock.objects.create(file=self, user=user)
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 877, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 1020, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 1061, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\sql\compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\debug_toolbar\panels\sql\tracking.py", line 252, in execute
+    return self._record(super().execute, sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\debug_toolbar\panels\sql\tracking.py", line 177, in _record
+    return method(sql, params)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: UNIQUE constraint failed: files_filelock.file_id
+2024-01-06 15:46:20,480: INFO Response: User: admin : POST /checkin/4 500
+2024-01-06 15:46:49,553: INFO D:\django projects\files_test\files\services.py changed, reloading.
+2024-01-06 15:46:52,150: INFO Watching for file changes with StatReloader
+2024-01-06 15:46:52,894: INFO Request: User: admin : GET /checkin/4
+2024-01-06 15:46:52,894: INFO Request: User: admin : POST /checkin/4
+2024-01-06 15:46:52,895: INFO Request: User: admin : GET /__reload__/events/
+2024-01-06 15:46:52,898: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-06 15:46:53,194: INFO Response: User: admin : GET /checkin/4 200
+2024-01-06 15:46:53,290: INFO Response: User: admin : POST /checkin/4 302
+2024-01-06 15:46:53,411: INFO Request: User: admin : GET /
+2024-01-06 15:46:53,438: INFO Response: User: admin : GET / 200
+2024-01-06 15:46:54,379: INFO Request: User: admin : GET /
+2024-01-06 15:46:54,402: INFO Response: User: admin : GET / 200
+2024-01-06 15:46:55,098: INFO Request: User: admin : GET /checkin/5
+2024-01-06 15:46:55,127: INFO Response: User: admin : GET /checkin/5 200
+2024-01-06 15:46:55,802: INFO Request: User: admin : POST /checkin/5
+2024-01-06 15:46:56,190: INFO Response: User: admin : POST /checkin/5 302
+2024-01-06 15:46:56,345: INFO Request: User: admin : GET /
+2024-01-06 15:46:56,365: INFO Response: User: admin : GET / 200
+2024-01-06 15:46:56,987: INFO Request: User: admin : GET /
+2024-01-06 15:46:57,017: INFO Response: User: admin : GET / 200
+2024-01-06 15:46:59,461: INFO Request: User: admin : GET /checkin/5
+2024-01-06 15:47:00,094: INFO Response: User: admin : GET /checkin/5 200
+2024-01-06 15:47:01,797: INFO Request: User: admin : POST /checkin/5
+2024-01-06 15:47:02,244: INFO Response: User: admin : POST /checkin/5 302
+2024-01-06 15:47:02,393: INFO Request: User: admin : GET /
+2024-01-06 15:47:02,414: INFO Response: User: admin : GET / 200
+2024-01-06 15:47:04,876: INFO Request: User: admin : GET /checkin/4
+2024-01-06 15:47:05,748: INFO Response: User: admin : GET /checkin/4 200
+2024-01-06 15:47:06,833: INFO Request: User: admin : GET /
+2024-01-06 15:47:06,875: INFO Response: User: admin : GET / 200
+2024-01-06 15:47:19,940: INFO Request: User: AnonymousUser : GET /
+2024-01-06 15:47:19,940: INFO Response: User: AnonymousUser : GET / 302
+2024-01-06 15:47:20,023: INFO Request: User: AnonymousUser : GET /login/
+2024-01-06 15:47:20,215: INFO Response: User: AnonymousUser : GET /login/ 200
+2024-01-06 15:47:21,830: INFO Request: User: AnonymousUser : GET /favicon.ico
+2024-01-06 15:47:21,830: INFO Response: User: AnonymousUser : GET /favicon.ico 200
+2024-01-06 15:47:21,913: INFO Request: User: AnonymousUser : GET /__reload__/events/
+2024-01-06 15:47:21,916: INFO Response: User: AnonymousUser : GET /__reload__/events/ 200
+2024-01-06 15:47:26,289: INFO Request: User: AnonymousUser : POST /login/
+2024-01-06 15:47:27,887: INFO Response: User: Hayan : POST /login/ 302
+2024-01-06 15:47:28,130: INFO Request: User: Hayan : GET /
+2024-01-06 15:47:28,163: INFO Response: User: Hayan : GET / 200
+2024-01-06 15:47:28,410: INFO Request: User: Hayan : GET /favicon.ico
+2024-01-06 15:47:28,410: INFO Response: User: Hayan : GET /favicon.ico 200
+2024-01-06 15:47:28,422: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-06 15:47:28,423: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-06 15:47:29,282: INFO Request: User: Hayan : GET /checkin/4
+2024-01-06 15:47:29,363: ERROR Internal Server Error: /checkin/4
+Traceback (most recent call last):
+  File "D:\django projects\files_test\files\views.py", line 58, in checkin
+    file = file_service.checkin_file(id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\services.py", line 16, in checkin_file
+    raise ValueError('File is checked in by another user')
+ValueError: File is checked in by another user
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 60, in checkin
+    messages.errors(request, e)
+    ^^^^^^^^^^^^^^^
+AttributeError: module 'django.contrib.messages' has no attribute 'errors'. Did you mean: 'error'?
+2024-01-06 15:47:29,385: INFO Response: User: Hayan : GET /checkin/4 500
+2024-01-06 15:47:56,030: INFO D:\django projects\files_test\files\views.py changed, reloading.
+2024-01-06 15:47:58,703: INFO Watching for file changes with StatReloader
+2024-01-06 15:47:59,383: INFO Request: User: admin : GET /__reload__/events/
+2024-01-06 15:47:59,383: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-06 15:47:59,385: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-06 15:47:59,385: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-06 15:47:59,484: INFO Request: User: admin : GET /
+2024-01-06 15:47:59,498: INFO Request: User: Hayan : GET /checkin/4
+2024-01-06 15:47:59,507: INFO Response: User: Hayan : GET /checkin/4 302
+2024-01-06 15:47:59,542: INFO Response: User: admin : GET / 200
+2024-01-06 15:47:59,619: INFO Request: User: Hayan : GET /
+2024-01-06 15:47:59,651: INFO Response: User: Hayan : GET / 200
+2024-01-06 15:48:02,150: INFO Request: User: Hayan : GET /checkin/4
+2024-01-06 15:48:02,157: INFO Response: User: Hayan : GET /checkin/4 302
+2024-01-06 15:48:02,207: INFO Request: User: Hayan : GET /
+2024-01-06 15:48:02,237: INFO Response: User: Hayan : GET / 200
+2024-01-06 15:48:04,105: INFO Request: User: Hayan : GET /checkin/5
+2024-01-06 15:48:04,109: INFO Response: User: Hayan : GET /checkin/5 302
+2024-01-06 15:48:04,174: INFO Request: User: Hayan : GET /
+2024-01-06 15:48:04,213: INFO Response: User: Hayan : GET / 200
+2024-01-06 15:48:08,145: INFO Request: User: Hayan : GET /checkin/4
+2024-01-06 15:48:08,158: INFO Response: User: Hayan : GET /checkin/4 302
+2024-01-06 15:48:08,202: INFO Request: User: Hayan : GET /
+2024-01-06 15:48:08,234: INFO Response: User: Hayan : GET / 200
+2024-01-06 15:48:13,344: INFO Request: User: Hayan : GET /checkin/5
+2024-01-06 15:48:13,354: INFO Response: User: Hayan : GET /checkin/5 302
+2024-01-06 15:48:13,399: INFO Request: User: Hayan : GET /
+2024-01-06 15:48:13,425: INFO Response: User: Hayan : GET / 200
+2024-01-06 15:48:47,939: INFO Request: User: admin : GET /checkin/4
+2024-01-06 15:48:47,977: INFO Response: User: admin : GET /checkin/4 200
+2024-01-06 15:48:49,191: INFO Request: User: admin : GET /generate-report/4
+2024-01-06 15:48:49,255: INFO Response: User: admin : GET /generate-report/4 200
+2024-01-06 15:48:53,231: INFO Request: User: admin : GET /check-file-status/4
+2024-01-06 15:48:53,231: INFO Response: User: admin : GET /check-file-status/4 200
+2024-01-06 15:48:53,505: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-06 15:48:53,515: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-06 15:48:58,251: INFO Request: User: admin : GET /check-file-status/4
+2024-01-06 15:48:58,258: INFO Response: User: admin : GET /check-file-status/4 200
+2024-01-06 15:48:58,559: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-06 15:48:58,559: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-06 15:49:03,276: INFO Request: User: admin : GET /check-file-status/4
+2024-01-06 15:49:03,283: INFO Response: User: admin : GET /check-file-status/4 200
+2024-01-06 15:49:03,588: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-06 15:49:03,602: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-06 15:49:08,273: INFO Request: User: admin : GET /check-file-status/4
+2024-01-06 15:49:08,273: INFO Response: User: admin : GET /check-file-status/4 200
+2024-01-06 15:49:08,590: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-06 15:49:08,604: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-06 15:49:14,123: INFO Request: User: admin : GET /check-file-status/4
+2024-01-06 15:49:14,123: INFO Response: User: admin : GET /check-file-status/4 200
+2024-01-06 15:49:15,211: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-06 15:49:15,226: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-06 15:49:19,304: INFO Request: User: admin : GET /check-file-status/4
+2024-01-06 15:49:19,306: INFO Response: User: admin : GET /check-file-status/4 200
+2024-01-06 15:49:20,383: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-06 15:49:20,388: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-06 15:49:24,532: INFO Request: User: admin : GET /check-file-status/4
+2024-01-06 15:49:24,534: INFO Response: User: admin : GET /check-file-status/4 200
+2024-01-06 15:49:25,561: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-06 15:49:25,574: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-06 15:49:29,625: INFO Request: User: admin : GET /check-file-status/4
+2024-01-06 15:49:29,625: INFO Response: User: admin : GET /check-file-status/4 200
+2024-01-06 15:49:30,723: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-06 15:49:30,739: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-06 15:49:34,824: INFO Request: User: admin : GET /check-file-status/4
+2024-01-06 15:49:34,838: INFO Response: User: admin : GET /check-file-status/4 200
+2024-01-06 15:49:35,837: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-06 15:49:35,842: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-06 15:49:40,019: INFO Request: User: admin : GET /check-file-status/4
+2024-01-06 15:49:40,019: INFO Response: User: admin : GET /check-file-status/4 200
+2024-01-06 15:49:41,036: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-06 15:49:41,037: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-06 15:49:45,192: INFO Request: User: admin : GET /check-file-status/4
+2024-01-06 15:49:45,192: INFO Response: User: admin : GET /check-file-status/4 200
+2024-01-06 15:49:46,191: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-06 15:49:46,204: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-06 15:49:50,196: INFO Request: User: admin : GET /check-file-status/4
+2024-01-06 15:49:50,200: INFO Response: User: admin : GET /check-file-status/4 200
+2024-01-06 15:49:51,902: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-06 15:49:51,909: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-06 15:49:51,914: INFO Request: User: admin : GET /
+2024-01-06 15:49:51,943: INFO Response: User: admin : GET / 200
+2024-01-06 15:49:53,148: INFO Request: User: admin : GET /checkin/5
+2024-01-06 15:49:53,901: INFO Response: User: admin : GET /checkin/5 200
+2024-01-06 15:49:59,685: INFO Request: User: admin : GET /check-file-status/5
+2024-01-06 15:49:59,685: INFO Response: User: admin : GET /check-file-status/5 200
+2024-01-06 15:50:00,756: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-06 15:50:00,770: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-06 15:50:04,841: INFO Request: User: admin : GET /check-file-status/5
+2024-01-06 15:50:04,841: INFO Response: User: admin : GET /check-file-status/5 200
+2024-01-06 15:50:05,350: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-06 15:50:05,364: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-06 15:50:09,839: INFO Request: User: admin : GET /check-file-status/5
+2024-01-06 15:50:09,852: INFO Response: User: admin : GET /check-file-status/5 200
+2024-01-06 15:50:11,656: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-06 15:50:11,664: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-06 15:50:11,672: INFO Request: User: admin : GET /
+2024-01-06 15:50:11,705: INFO Response: User: admin : GET / 200
+2024-01-06 15:54:19,857: INFO D:\django projects\files_test\files\views.py changed, reloading.
+2024-01-06 15:54:22,249: INFO Watching for file changes with StatReloader
+2024-01-06 15:54:23,001: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-06 15:54:23,002: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-06 15:54:23,003: INFO Request: User: admin : GET /__reload__/events/
+2024-01-06 15:54:23,005: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-06 15:54:23,114: INFO Request: User: admin : GET /
+2024-01-06 15:54:23,123: INFO Request: User: Hayan : GET /
+2024-01-06 15:54:23,181: INFO Response: User: admin : GET / 200
+2024-01-06 15:54:23,186: INFO Response: User: Hayan : GET / 200
+2024-01-06 15:54:37,670: INFO D:\django projects\files_test\files\views.py changed, reloading.
+2024-01-06 15:54:39,954: INFO Watching for file changes with StatReloader
+2024-01-06 15:54:40,717: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-06 15:54:40,717: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-06 15:54:40,718: INFO Request: User: admin : GET /__reload__/events/
+2024-01-06 15:54:40,718: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-06 15:54:40,795: INFO Request: User: admin : GET /
+2024-01-06 15:54:40,809: INFO Request: User: Hayan : GET /
+2024-01-06 15:54:40,837: INFO Response: User: admin : GET / 200
+2024-01-06 15:54:40,857: INFO Response: User: Hayan : GET / 200
+2024-01-06 16:14:11,004: INFO D:\django projects\files_test\files\services.py changed, reloading.
+2024-01-06 16:14:12,661: INFO Watching for file changes with StatReloader
+2024-01-06 16:15:03,552: INFO D:\django projects\files_test\files\services.py changed, reloading.
+2024-01-06 16:15:04,992: INFO Watching for file changes with StatReloader
+2024-01-06 16:15:05,530: INFO Request: User: admin : GET /__reload__/events/
+2024-01-06 16:15:05,530: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-06 16:15:05,530: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-06 16:15:05,530: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-06 16:15:05,631: INFO Request: User: admin : GET /
+2024-01-06 16:15:05,635: INFO Request: User: Hayan : GET /
+2024-01-06 16:15:05,680: INFO Response: User: Hayan : GET / 200
+2024-01-06 16:15:05,684: INFO Response: User: admin : GET / 200
+2024-01-06 16:15:17,955: INFO D:\django projects\files_test\files\services.py changed, reloading.
+2024-01-06 16:15:19,581: INFO Watching for file changes with StatReloader
+2024-01-06 16:15:20,177: INFO Request: User: admin : GET /__reload__/events/
+2024-01-06 16:15:20,179: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-06 16:15:20,179: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-06 16:15:20,179: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-06 16:15:20,317: INFO Request: User: Hayan : GET /
+2024-01-06 16:15:20,330: INFO Request: User: admin : GET /
+2024-01-06 16:15:20,364: INFO Response: User: admin : GET / 200
+2024-01-06 16:15:20,369: INFO Response: User: Hayan : GET / 200
+2024-01-06 16:15:29,623: INFO Request: User: admin : POST /
+2024-01-06 16:15:32,422: INFO Response: User: admin : POST / 200
+2024-01-06 16:15:40,165: INFO Request: User: Hayan : GET /
+2024-01-06 16:15:40,197: INFO Response: User: Hayan : GET / 200
+2024-01-06 16:15:40,778: INFO Request: User: Hayan : GET /checkin/5
+2024-01-06 16:15:40,785: INFO Response: User: Hayan : GET /checkin/5 302
+2024-01-06 16:15:40,834: INFO Request: User: Hayan : GET /
+2024-01-06 16:15:40,866: INFO Response: User: Hayan : GET / 200
+2024-01-06 16:15:41,932: INFO Request: User: Hayan : GET /checkin/4
+2024-01-06 16:15:41,940: INFO Response: User: Hayan : GET /checkin/4 302
+2024-01-06 16:15:41,978: INFO Request: User: Hayan : GET /
+2024-01-06 16:15:42,011: INFO Response: User: Hayan : GET / 200
+2024-01-06 16:15:43,464: INFO Request: User: Hayan : GET /checkin/3
+2024-01-06 16:15:43,480: INFO Response: User: Hayan : GET /checkin/3 302
+2024-01-06 16:15:43,529: INFO Request: User: Hayan : GET /
+2024-01-06 16:15:43,574: INFO Response: User: Hayan : GET / 200
+2024-01-06 16:15:45,227: INFO Request: User: Hayan : GET /checkin/2
+2024-01-06 16:15:45,227: INFO Response: User: Hayan : GET /checkin/2 302
+2024-01-06 16:15:45,278: INFO Request: User: Hayan : GET /
+2024-01-06 16:15:45,306: INFO Response: User: Hayan : GET / 200
+2024-01-06 16:15:47,460: INFO Request: User: Hayan : GET /
+2024-01-06 16:15:47,476: INFO Response: User: Hayan : GET / 200
+2024-01-06 16:15:51,362: INFO Request: User: admin : POST /
+2024-01-06 16:15:53,864: INFO Response: User: admin : POST / 200
+2024-01-06 16:16:00,103: INFO Request: User: Hayan : GET /
+2024-01-06 16:16:00,137: INFO Response: User: Hayan : GET / 200
+2024-01-06 16:16:03,581: INFO Request: User: admin : GET /
+2024-01-06 16:16:03,604: INFO Response: User: admin : GET / 200
+2024-01-06 16:16:06,103: INFO Request: User: admin : GET /
+2024-01-06 16:16:06,158: INFO Response: User: admin : GET / 200
+2024-01-06 16:16:07,779: INFO Request: User: admin : GET /
+2024-01-06 16:16:07,880: INFO Response: User: admin : GET / 200
+2024-01-06 16:16:09,658: INFO Request: User: admin : GET /
+2024-01-06 16:16:09,677: INFO Response: User: admin : GET / 200
+2024-01-06 16:16:10,911: INFO Request: User: Hayan : GET /
+2024-01-06 16:16:10,914: INFO Response: User: Hayan : GET / 200
+2024-01-06 16:16:12,022: INFO Request: User: Hayan : GET /checkin/5
+2024-01-06 16:16:12,028: INFO Response: User: Hayan : GET /checkin/5 302
+2024-01-06 16:16:12,060: INFO Request: User: Hayan : GET /
+2024-01-06 16:16:12,071: INFO Response: User: Hayan : GET / 200
+2024-01-06 16:16:13,644: INFO Request: User: Hayan : GET /checkin/4
+2024-01-06 16:16:14,331: INFO Response: User: Hayan : GET /checkin/4 200
+2024-01-06 16:16:15,984: INFO Request: User: admin : GET /
+2024-01-06 16:16:16,016: INFO Response: User: admin : GET / 200
+2024-01-06 16:16:19,653: INFO Request: User: Hayan : GET /check-file-status/4
+2024-01-06 16:16:19,656: INFO Response: User: Hayan : GET /check-file-status/4 200
+2024-01-06 16:16:19,667: INFO Request: User: admin : POST /
+2024-01-06 16:16:19,705: INFO Response: User: admin : POST / 200
+2024-01-06 16:16:19,823: INFO Request: User: admin : GET /__reload__/events/
+2024-01-06 16:16:19,823: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-06 16:16:19,909: INFO Request: User: Hayan : GET /__debug__/history_sidebar/
+2024-01-06 16:16:19,921: INFO Response: User: Hayan : GET /__debug__/history_sidebar/ 200
+2024-01-06 16:16:24,541: INFO Request: User: Hayan : GET /check-file-status/4
+2024-01-06 16:16:24,541: INFO Response: User: Hayan : GET /check-file-status/4 200
+2024-01-06 16:16:24,810: INFO Request: User: Hayan : GET /__debug__/history_sidebar/
+2024-01-06 16:16:24,824: INFO Response: User: Hayan : GET /__debug__/history_sidebar/ 200
+2024-01-06 16:16:29,108: INFO Request: User: Hayan : POST /checkin/4
+2024-01-06 16:16:29,713: INFO Request: User: Hayan : GET /check-file-status/4
+2024-01-06 16:16:29,949: INFO Response: User: Hayan : GET /check-file-status/4 200
+2024-01-06 16:16:30,095: INFO Response: User: Hayan : POST /checkin/4 302
+2024-01-06 16:16:30,298: INFO Request: User: Hayan : GET /
+2024-01-06 16:16:30,313: INFO Response: User: Hayan : GET / 200
+2024-01-06 16:16:30,398: INFO Request: User: Hayan : GET /
+2024-01-06 16:16:30,415: INFO Response: User: Hayan : GET / 200
+2024-01-06 16:16:34,460: INFO Request: User: admin : GET /
+2024-01-06 16:16:34,475: INFO Response: User: admin : GET / 200
+2024-01-06 16:16:34,588: INFO Request: User: admin : GET /__reload__/events/
+2024-01-06 16:16:34,588: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-06 16:16:35,380: INFO Request: User: admin : GET /
+2024-01-06 16:16:35,412: INFO Response: User: admin : GET / 200
+2024-01-06 16:16:35,518: INFO Request: User: admin : GET /__reload__/events/
+2024-01-06 16:16:35,522: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-06 16:17:55,330: INFO D:\django projects\files_test\files\views.py changed, reloading.
+2024-01-06 16:17:57,230: INFO Watching for file changes with StatReloader
+2024-01-06 16:17:57,878: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-06 16:17:57,878: INFO Request: User: admin : GET /__reload__/events/
+2024-01-06 16:17:57,879: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-06 16:17:57,879: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-06 16:17:57,985: INFO Request: User: admin : GET /
+2024-01-06 16:17:58,000: INFO Request: User: Hayan : GET /
+2024-01-06 16:17:58,090: ERROR Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 19, in home
+    files = file_service.home()
+            ^^^^^^^^^^^^^^^^^
+AttributeError: 'FileService' object has no attribute 'home'
+2024-01-06 16:17:58,106: INFO Response: User: admin : GET / 500
+2024-01-06 16:17:58,097: ERROR Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 19, in home
+    files = file_service.home()
+            ^^^^^^^^^^^^^^^^^
+AttributeError: 'FileService' object has no attribute 'home'
+2024-01-06 16:17:58,112: INFO Response: User: Hayan : GET / 500
+2024-01-06 16:17:58,305: INFO Request: User: admin : GET /__reload__/events/
+2024-01-06 16:17:58,306: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-06 16:18:12,563: INFO D:\django projects\files_test\files\services.py changed, reloading.
+2024-01-06 16:18:14,386: INFO Watching for file changes with StatReloader
+2024-01-06 16:18:15,049: INFO Request: User: admin : GET /__reload__/events/
+2024-01-06 16:18:15,049: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-06 16:18:15,053: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-06 16:18:15,053: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-06 16:18:15,160: INFO Request: User: Hayan : GET /
+2024-01-06 16:18:15,160: INFO Request: User: admin : GET /
+2024-01-06 16:18:15,195: INFO Response: User: Hayan : GET / 200
+2024-01-06 16:18:15,195: INFO Response: User: admin : GET / 200
+2024-01-06 16:18:15,383: INFO Request: User: admin : GET /__reload__/events/
+2024-01-06 16:18:15,384: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-06 16:18:16,357: INFO Request: User: admin : GET /
+2024-01-06 16:18:16,375: INFO Response: User: admin : GET / 200
+2024-01-06 16:18:16,482: INFO Request: User: admin : GET /__reload__/events/
+2024-01-06 16:18:16,482: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-06 16:20:08,943: INFO D:\django projects\files_test\files\views.py changed, reloading.
+2024-01-06 16:20:10,428: INFO Watching for file changes with StatReloader
+2024-01-06 16:20:11,113: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-06 16:20:11,113: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-06 16:20:11,113: INFO Request: User: admin : GET /__reload__/events/
+2024-01-06 16:20:11,113: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-06 16:20:11,189: INFO Request: User: Hayan : GET /
+2024-01-06 16:20:11,205: INFO Request: User: admin : GET /
+2024-01-06 16:20:11,232: INFO Response: User: admin : GET / 200
+2024-01-06 16:20:11,239: INFO Response: User: Hayan : GET / 200
+2024-01-06 16:20:11,414: INFO Request: User: admin : GET /__reload__/events/
+2024-01-06 16:20:11,415: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-06 16:20:16,498: INFO D:\django projects\files_test\files\views.py changed, reloading.
+2024-01-06 16:20:18,067: INFO Watching for file changes with StatReloader
+2024-01-06 16:20:18,669: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-06 16:20:18,669: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-06 16:20:18,669: INFO Request: User: admin : GET /checkin/5
+2024-01-06 16:20:18,672: INFO Request: User: admin : GET /__reload__/events/
+2024-01-06 16:20:18,672: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-06 16:20:18,785: INFO Request: User: Hayan : GET /
+2024-01-06 16:20:18,992: INFO Response: User: Hayan : GET / 200
+2024-01-06 16:20:18,992: INFO Request: User: admin : GET /
+2024-01-06 16:20:19,319: INFO Response: User: admin : GET / 200
+2024-01-06 16:20:19,370: INFO Response: User: admin : GET /checkin/5 200
+2024-01-06 16:20:19,498: INFO Request: User: admin : GET /__reload__/events/
+2024-01-06 16:20:19,498: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-06 16:20:23,073: INFO Request: User: admin : GET /checkin/5
+2024-01-06 16:20:23,099: INFO Response: User: admin : GET /checkin/5 200
+2024-01-06 16:20:28,471: INFO Request: User: admin : GET /check-file-status/5
+2024-01-06 16:20:28,549: ERROR Internal Server Error: /check-file-status/5
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    file = file_service.check_file_status(id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'FileService' object has no attribute 'check_file_status'
+2024-01-06 16:20:28,565: INFO Response: User: admin : GET /check-file-status/5 500
+2024-01-06 16:20:29,622: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-06 16:20:29,622: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-06 16:20:33,646: INFO Request: User: admin : GET /check-file-status/5
+2024-01-06 16:20:33,677: ERROR Internal Server Error: /check-file-status/5
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    file = file_service.check_file_status(id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'FileService' object has no attribute 'check_file_status'
+2024-01-06 16:20:33,688: INFO Response: User: admin : GET /check-file-status/5 500
+2024-01-06 16:20:34,723: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-06 16:20:34,728: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-06 16:20:38,787: INFO Request: User: admin : GET /check-file-status/5
+2024-01-06 16:20:38,835: ERROR Internal Server Error: /check-file-status/5
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    file = file_service.check_file_status(id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'FileService' object has no attribute 'check_file_status'
+2024-01-06 16:20:38,835: INFO Response: User: admin : GET /check-file-status/5 500
+2024-01-06 16:20:39,875: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-06 16:20:39,884: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-06 16:20:43,921: INFO Request: User: admin : GET /check-file-status/5
+2024-01-06 16:20:43,955: ERROR Internal Server Error: /check-file-status/5
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    file = file_service.check_file_status(id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'FileService' object has no attribute 'check_file_status'
+2024-01-06 16:20:43,957: INFO Response: User: admin : GET /check-file-status/5 500
+2024-01-06 16:20:45,000: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-06 16:20:45,006: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-06 16:20:49,055: INFO Request: User: admin : GET /check-file-status/5
+2024-01-06 16:20:49,094: ERROR Internal Server Error: /check-file-status/5
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    file = file_service.check_file_status(id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'FileService' object has no attribute 'check_file_status'
+2024-01-06 16:20:49,098: INFO Response: User: admin : GET /check-file-status/5 500
+2024-01-06 16:20:50,143: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-06 16:20:50,152: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-06 16:20:52,606: INFO D:\django projects\files_test\files\views.py changed, reloading.
+2024-01-06 16:20:54,061: INFO Watching for file changes with StatReloader
+2024-01-06 16:20:54,618: INFO Request: User: admin : GET /__reload__/events/
+2024-01-06 16:20:54,618: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-06 16:20:54,623: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-06 16:20:54,623: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-06 16:20:54,623: INFO Request: User: admin : GET /check-file-status/5
+2024-01-06 16:20:54,753: ERROR Internal Server Error: /check-file-status/5
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    file = file_service.check_file_status(id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'FileService' object has no attribute 'check_file_status'
+2024-01-06 16:20:54,759: INFO Response: User: admin : GET /check-file-status/5 500
+2024-01-06 16:20:54,763: INFO Request: User: Hayan : GET /
+2024-01-06 16:20:54,767: INFO Request: User: admin : GET /checkin/5
+2024-01-06 16:20:55,504: INFO Response: User: Hayan : GET / 200
+2024-01-06 16:20:55,555: INFO Response: User: admin : GET /checkin/5 200
+2024-01-06 16:21:01,615: INFO Request: User: admin : GET /check-file-status/5
+2024-01-06 16:21:01,647: ERROR Internal Server Error: /check-file-status/5
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    file = file_service.check_file_status(id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'FileService' object has no attribute 'check_file_status'
+2024-01-06 16:21:01,662: INFO Response: User: admin : GET /check-file-status/5 500
+2024-01-06 16:21:02,697: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-06 16:21:02,704: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-06 16:21:06,802: INFO Request: User: admin : GET /check-file-status/5
+2024-01-06 16:21:06,832: ERROR Internal Server Error: /check-file-status/5
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    file = file_service.check_file_status(id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'FileService' object has no attribute 'check_file_status'
+2024-01-06 16:21:06,848: INFO Response: User: admin : GET /check-file-status/5 500
+2024-01-06 16:21:07,909: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-06 16:21:07,924: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-06 16:21:11,460: INFO D:\django projects\files_test\files\services.py changed, reloading.
+2024-01-06 16:21:13,091: INFO Watching for file changes with StatReloader
+2024-01-06 16:21:13,709: INFO Request: User: admin : GET /__reload__/events/
+2024-01-06 16:21:13,709: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-06 16:21:13,711: INFO Request: User: admin : GET /check-file-status/5
+2024-01-06 16:21:13,711: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-06 16:21:13,711: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-06 16:21:13,715: INFO Response: User: admin : GET /check-file-status/5 200
+2024-01-06 16:21:13,845: INFO Request: User: Hayan : GET /
+2024-01-06 16:21:13,885: INFO Response: User: Hayan : GET / 200
+2024-01-06 16:21:13,897: INFO Request: User: admin : GET /checkin/5
+2024-01-06 16:21:14,625: INFO Response: User: admin : GET /checkin/5 200
+2024-01-06 16:21:14,731: INFO Request: User: admin : GET /
+2024-01-06 16:21:14,750: INFO Response: User: admin : GET / 200
+2024-01-06 16:21:20,290: INFO Request: User: admin : GET /
+2024-01-06 16:21:20,306: INFO Response: User: admin : GET / 200
+2024-01-06 16:21:22,306: INFO Request: User: admin : GET /checkin/5
+2024-01-06 16:21:22,314: INFO Response: User: admin : GET /checkin/5 200
+2024-01-06 16:21:27,718: INFO Request: User: admin : GET /check-file-status/5
+2024-01-06 16:21:27,718: INFO Response: User: admin : GET /check-file-status/5 200
+2024-01-06 16:21:28,886: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-06 16:21:28,902: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-06 16:21:32,727: INFO Request: User: admin : GET /check-file-status/5
+2024-01-06 16:21:32,727: INFO Response: User: admin : GET /check-file-status/5 200
+2024-01-06 16:21:33,849: INFO Request: User: admin : GET /
+2024-01-06 16:21:33,860: INFO Response: User: admin : GET / 200
+2024-01-06 16:21:33,860: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-06 16:21:33,868: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-06 16:26:38,898: INFO D:\django projects\files_test\files\services.py changed, reloading.
+2024-01-06 16:26:40,475: INFO Watching for file changes with StatReloader
+2024-01-06 16:26:41,109: INFO Request: User: admin : GET /__reload__/events/
+2024-01-06 16:26:41,109: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-06 16:26:41,111: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-06 16:26:41,111: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-06 16:26:41,195: INFO Request: User: admin : GET /
+2024-01-06 16:26:41,203: INFO Request: User: Hayan : GET /
+2024-01-06 16:26:41,230: INFO Response: User: Hayan : GET / 200
+2024-01-06 16:26:41,239: INFO Response: User: admin : GET / 200
+2024-01-06 16:27:24,274: INFO D:\django projects\files_test\files\services.py changed, reloading.
+2024-01-06 16:27:26,092: INFO Watching for file changes with StatReloader
+2024-01-06 16:27:26,811: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-06 16:27:26,811: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-06 16:27:26,813: INFO Request: User: admin : GET /__reload__/events/
+2024-01-06 16:27:26,813: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-06 16:27:26,930: INFO Request: User: admin : GET /
+2024-01-06 16:27:26,942: INFO Request: User: Hayan : GET /
+2024-01-06 16:27:26,999: INFO Response: User: Hayan : GET / 200
+2024-01-06 16:27:27,002: INFO Response: User: admin : GET / 200
+2024-01-06 16:28:09,593: INFO D:\django projects\files_test\files\views.py changed, reloading.
+2024-01-06 16:28:11,228: INFO Watching for file changes with StatReloader
+2024-01-06 16:28:11,851: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-06 16:28:11,851: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-06 16:28:11,852: INFO Request: User: admin : GET /__reload__/events/
+2024-01-06 16:28:11,852: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-06 16:28:11,958: INFO Request: User: admin : GET /
+2024-01-06 16:28:11,966: INFO Request: User: Hayan : GET /
+2024-01-06 16:28:12,008: INFO Response: User: Hayan : GET / 200
+2024-01-06 16:28:12,013: INFO Response: User: admin : GET / 200
+2024-01-06 16:30:31,254: INFO D:\django projects\files_test\files\services.py changed, reloading.
+2024-01-06 16:30:33,063: INFO Watching for file changes with StatReloader
+2024-01-06 16:30:33,736: INFO Request: User: admin : GET /__reload__/events/
+2024-01-06 16:30:33,736: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-06 16:30:33,736: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-06 16:30:33,737: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-06 16:30:33,816: INFO Request: User: Hayan : GET /
+2024-01-06 16:30:33,824: INFO Request: User: admin : GET /
+2024-01-06 16:30:33,851: INFO Response: User: admin : GET / 200
+2024-01-06 16:30:33,865: INFO Response: User: Hayan : GET / 200
+2024-01-06 16:30:52,320: INFO D:\django projects\files_test\files\views.py changed, reloading.
+2024-01-06 16:30:54,114: INFO Watching for file changes with StatReloader
+2024-01-06 16:30:54,824: INFO Request: User: admin : GET /__reload__/events/
+2024-01-06 16:30:54,824: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-06 16:30:54,824: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-06 16:30:54,826: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-06 16:30:54,930: INFO Request: User: admin : GET /
+2024-01-06 16:30:54,950: INFO Request: User: Hayan : GET /
+2024-01-06 16:30:55,041: INFO Response: User: admin : GET / 200
+2024-01-06 16:30:55,042: INFO Response: User: Hayan : GET / 200
+2024-01-06 16:30:57,302: INFO Request: User: admin : GET /checkin/5
+2024-01-06 16:30:57,954: INFO Response: User: admin : GET /checkin/5 200
+2024-01-06 16:30:59,083: INFO Request: User: admin : GET /download-file/5
+2024-01-06 16:30:59,089: INFO Response: User: admin : GET /download-file/5 200
+2024-01-06 16:31:03,251: INFO Request: User: admin : GET /check-file-status/5
+2024-01-06 16:31:03,251: INFO Response: User: admin : GET /check-file-status/5 200
+2024-01-06 16:31:04,303: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-06 16:31:04,303: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-06 16:31:08,338: INFO Request: User: admin : GET /check-file-status/5
+2024-01-06 16:31:08,338: INFO Response: User: admin : GET /check-file-status/5 200
+2024-01-06 16:31:09,390: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-06 16:31:09,398: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-06 16:31:13,467: INFO Request: User: admin : GET /check-file-status/5
+2024-01-06 16:31:13,469: INFO Response: User: admin : GET /check-file-status/5 200
+2024-01-06 16:31:52,855: INFO D:\django projects\files_test\files\services.py changed, reloading.
+2024-01-06 16:31:54,526: INFO Watching for file changes with StatReloader
+2024-01-06 16:32:04,553: INFO D:\django projects\files_test\files\services.py changed, reloading.
+2024-01-06 16:32:06,320: INFO Watching for file changes with StatReloader
+2024-01-06 16:35:11,989: INFO D:\django projects\files_test\files\services.py changed, reloading.
+2024-01-06 16:35:13,818: INFO Watching for file changes with StatReloader
+2024-01-06 16:35:14,884: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-06 16:35:14,884: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-06 16:35:15,006: INFO Request: User: Hayan : GET /
+2024-01-06 16:35:15,046: INFO Response: User: Hayan : GET / 200
+2024-01-06 16:35:19,567: INFO D:\django projects\files_test\files\services.py changed, reloading.
+2024-01-06 16:35:21,215: INFO Watching for file changes with StatReloader
+2024-01-06 16:35:21,848: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-06 16:35:21,848: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-06 16:35:21,909: INFO Request: User: Hayan : GET /
+2024-01-06 16:35:21,942: INFO Response: User: Hayan : GET / 200
+2024-01-06 16:35:43,616: INFO D:\django projects\files_test\files\views.py changed, reloading.
+2024-01-06 16:35:45,110: INFO Watching for file changes with StatReloader
+2024-01-06 16:35:45,805: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-06 16:35:45,805: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-06 16:35:45,870: INFO Request: User: Hayan : GET /
+2024-01-06 16:35:45,896: INFO Response: User: Hayan : GET / 200
+2024-01-06 16:36:19,329: INFO D:\django projects\files_test\files\views.py changed, reloading.
+2024-01-06 16:36:21,042: INFO Watching for file changes with StatReloader
+2024-01-06 16:36:21,769: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-06 16:36:21,771: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-06 16:36:21,860: INFO Request: User: Hayan : GET /
+2024-01-06 16:36:21,886: INFO Response: User: Hayan : GET / 200
+2024-01-06 16:36:30,680: INFO D:\django projects\files_test\files\services.py changed, reloading.
+2024-01-06 16:36:32,412: INFO Watching for file changes with StatReloader
+2024-01-06 16:36:33,134: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-06 16:36:33,134: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-06 16:36:33,203: INFO Request: User: Hayan : GET /
+2024-01-06 16:36:33,234: INFO Response: User: Hayan : GET / 200
+2024-01-06 16:37:58,451: INFO D:\django projects\files_test\files\services.py changed, reloading.
+2024-01-06 16:38:00,269: INFO Watching for file changes with StatReloader
+2024-01-06 16:38:01,037: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-06 16:38:01,037: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-06 16:38:01,107: INFO Request: User: Hayan : GET /
+2024-01-06 16:38:01,132: INFO Response: User: Hayan : GET / 200
+2024-01-06 16:38:10,875: INFO D:\django projects\files_test\files\views.py changed, reloading.
+2024-01-06 16:38:12,495: INFO Watching for file changes with StatReloader
+2024-01-06 16:38:13,171: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-06 16:38:13,171: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-06 16:38:13,254: INFO Request: User: Hayan : GET /
+2024-01-06 16:38:13,284: INFO Response: User: Hayan : GET / 200
+2024-01-06 16:38:19,150: INFO Request: User: admin : GET /
+2024-01-06 16:38:19,179: INFO Response: User: admin : GET / 200
+2024-01-06 16:38:19,631: INFO Request: User: admin : GET /__reload__/events/
+2024-01-06 16:38:19,631: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-06 16:38:19,669: INFO Request: User: admin : GET /
+2024-01-06 16:38:19,684: INFO Response: User: admin : GET / 200
+2024-01-06 16:38:20,208: INFO Request: User: admin : GET /checkin/5
+2024-01-06 16:38:20,884: INFO Response: User: admin : GET /checkin/5 200
+2024-01-06 16:38:22,122: INFO Request: User: admin : GET /delete-file/5
+2024-01-06 16:38:22,165: INFO Response: User: admin : GET /delete-file/5 200
+2024-01-06 16:38:23,311: INFO Request: User: admin : POST /delete-file/5
+2024-01-06 16:38:23,520: INFO Response: User: admin : POST /delete-file/5 302
+2024-01-06 16:38:23,639: INFO Request: User: admin : GET /
+2024-01-06 16:38:23,646: INFO Response: User: admin : GET / 200
+2024-01-06 16:38:26,065: INFO Request: User: admin : GET /
+2024-01-06 16:38:26,080: INFO Response: User: admin : GET / 200
+2024-01-06 16:38:26,947: INFO Request: User: admin : GET /add-file/
+2024-01-06 16:38:26,971: INFO Response: User: admin : GET /add-file/ 200
+2024-01-06 16:38:34,315: INFO Request: User: admin : POST /add-file/
+2024-01-06 16:38:34,439: INFO Response: User: admin : POST /add-file/ 302
+2024-01-06 16:38:34,486: INFO Request: User: admin : GET /
+2024-01-06 16:38:34,496: INFO Response: User: admin : GET / 200
+2024-01-06 16:38:35,349: INFO Request: User: admin : GET /
+2024-01-06 16:38:35,380: INFO Response: User: admin : GET / 200
+2024-01-06 16:39:06,214: INFO D:\django projects\files_test\files\services.py changed, reloading.
+2024-01-06 16:39:07,945: INFO Watching for file changes with StatReloader
+2024-01-06 16:39:08,470: INFO Request: User: admin : GET /__reload__/events/
+2024-01-06 16:39:08,470: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-06 16:39:08,470: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-06 16:39:08,470: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-06 16:39:08,574: INFO Request: User: Hayan : GET /
+2024-01-06 16:39:08,586: INFO Request: User: admin : GET /
+2024-01-06 16:39:08,612: INFO Response: User: Hayan : GET / 200
+2024-01-06 16:39:08,621: INFO Response: User: admin : GET / 200
+2024-01-06 16:42:47,263: INFO D:\django projects\files_test\files\views.py changed, reloading.
+2024-01-06 16:42:48,971: INFO Watching for file changes with StatReloader
+2024-01-06 16:42:49,486: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-06 16:42:49,487: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-06 16:42:49,488: INFO Request: User: admin : GET /__reload__/events/
+2024-01-06 16:42:49,488: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-06 16:42:49,596: INFO Request: User: Hayan : GET /
+2024-01-06 16:42:49,617: INFO Request: User: admin : GET /
+2024-01-06 16:42:49,677: INFO Response: User: admin : GET / 200
+2024-01-06 16:42:49,681: INFO Response: User: Hayan : GET / 200
+2024-01-06 16:42:49,847: INFO Request: User: admin : GET /favicon.ico
+2024-01-06 16:42:49,847: INFO Response: User: admin : GET /favicon.ico 200
+2024-01-06 16:43:46,245: INFO D:\django projects\files_test\files\services.py changed, reloading.
+2024-01-06 16:43:47,863: INFO Watching for file changes with StatReloader
+2024-01-06 16:43:48,486: INFO Request: User: admin : GET /__reload__/events/
+2024-01-06 16:43:48,486: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-06 16:43:48,488: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-06 16:43:48,488: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-06 16:43:48,577: INFO Request: User: Hayan : GET /
+2024-01-06 16:43:48,587: INFO Request: User: admin : GET /
+2024-01-06 16:43:48,622: INFO Response: User: admin : GET / 200
+2024-01-06 16:43:48,628: INFO Response: User: Hayan : GET / 200
+2024-01-06 16:43:48,762: INFO Request: User: admin : GET /favicon.ico
+2024-01-06 16:43:48,763: INFO Response: User: admin : GET /favicon.ico 200
+2024-01-06 16:44:13,539: INFO D:\django projects\files_test\files\views.py changed, reloading.
+2024-01-06 16:44:15,263: INFO Watching for file changes with StatReloader
+2024-01-06 16:44:15,814: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-06 16:44:15,815: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-06 16:44:15,815: INFO Request: User: admin : GET /__reload__/events/
+2024-01-06 16:44:15,815: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-06 16:44:15,907: INFO Request: User: Hayan : GET /
+2024-01-06 16:44:15,917: INFO Request: User: admin : GET /
+2024-01-06 16:44:15,960: INFO Response: User: admin : GET / 200
+2024-01-06 16:44:15,961: INFO Response: User: Hayan : GET / 200
+2024-01-06 16:44:16,151: INFO Request: User: admin : GET /favicon.ico
+2024-01-06 16:44:16,151: INFO Response: User: admin : GET /favicon.ico 200
+2024-01-06 16:44:53,724: INFO D:\django projects\files_test\files\views.py changed, reloading.
+2024-01-06 16:44:55,380: INFO Watching for file changes with StatReloader
+2024-01-06 16:44:56,005: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-06 16:44:56,005: INFO Request: User: admin : GET /__reload__/events/
+2024-01-06 16:44:56,006: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-06 16:44:56,006: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-06 16:44:56,087: INFO Request: User: Hayan : GET /
+2024-01-06 16:44:56,095: INFO Request: User: admin : GET /
+2024-01-06 16:44:56,120: INFO Response: User: admin : GET / 200
+2024-01-06 16:44:56,134: INFO Response: User: Hayan : GET / 200
+2024-01-06 16:44:56,333: INFO Request: User: admin : GET /favicon.ico
+2024-01-06 16:44:56,333: INFO Response: User: admin : GET /favicon.ico 200
+2024-01-06 16:48:36,758: INFO D:\django projects\files_test\files\views.py changed, reloading.
+2024-01-06 16:48:38,271: INFO Watching for file changes with StatReloader
+2024-01-06 16:48:38,939: INFO Request: User: admin : GET /__reload__/events/
+2024-01-06 16:48:38,939: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-06 16:48:38,939: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-06 16:48:38,939: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-06 16:48:39,021: INFO Request: User: Hayan : GET /
+2024-01-06 16:48:39,050: INFO Response: User: Hayan : GET / 200
+2024-01-06 16:48:39,058: INFO Request: User: admin : GET /
+2024-01-06 16:48:39,090: INFO Response: User: admin : GET / 200
+2024-01-06 16:48:39,188: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-06 16:48:39,189: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-06 16:48:39,215: INFO Request: User: admin : GET /favicon.ico
+2024-01-06 16:48:39,215: INFO Response: User: admin : GET /favicon.ico 200
+2024-01-06 16:50:20,549: INFO D:\django projects\files_test\files\services.py changed, reloading.
+2024-01-06 16:50:22,216: INFO Watching for file changes with StatReloader
+2024-01-06 16:50:22,793: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-06 16:50:22,793: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-06 16:50:22,793: INFO Request: User: admin : GET /__reload__/events/
+2024-01-06 16:50:22,795: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-06 16:50:22,889: INFO Request: User: admin : GET /
+2024-01-06 16:50:22,899: INFO Request: User: Hayan : GET /
+2024-01-06 16:50:22,945: INFO Response: User: Hayan : GET / 200
+2024-01-06 16:50:22,948: INFO Response: User: admin : GET / 200
+2024-01-06 16:50:23,124: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-06 16:50:23,124: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-06 16:50:23,160: INFO Request: User: admin : GET /favicon.ico
+2024-01-06 16:50:23,160: INFO Response: User: admin : GET /favicon.ico 200
+2024-01-06 16:51:07,642: INFO D:\django projects\files_test\files\views.py changed, reloading.
+2024-01-06 16:51:09,158: INFO Watching for file changes with StatReloader
+2024-01-06 16:51:09,847: INFO Request: User: admin : GET /__reload__/events/
+2024-01-06 16:51:09,847: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-06 16:51:09,847: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-06 16:51:09,847: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-06 16:51:09,941: INFO Request: User: admin : GET /
+2024-01-06 16:51:09,946: INFO Request: User: Hayan : GET /
+2024-01-06 16:51:09,988: INFO Response: User: Hayan : GET / 200
+2024-01-06 16:51:09,993: INFO Response: User: admin : GET / 200
+2024-01-06 16:51:10,116: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-06 16:51:10,121: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-06 16:51:10,141: INFO Request: User: admin : GET /favicon.ico
+2024-01-06 16:51:10,141: INFO Response: User: admin : GET /favicon.ico 200
+2024-01-06 16:51:51,374: INFO Request: User: Hayan : GET /
+2024-01-06 16:51:51,374: INFO Request: User: admin : GET /
+2024-01-06 16:51:51,409: INFO Response: User: Hayan : GET / 200
+2024-01-06 16:51:51,422: INFO Response: User: admin : GET / 200
+2024-01-06 16:51:51,606: INFO Request: User: admin : GET /favicon.ico
+2024-01-06 16:51:51,606: INFO Response: User: admin : GET /favicon.ico 200
+2024-01-06 16:51:51,615: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-06 16:51:51,615: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-06 16:51:53,458: INFO Request: User: Hayan : GET /all-groups/
+2024-01-06 16:51:53,473: INFO Response: User: Hayan : GET /all-groups/ 200
+2024-01-06 16:51:54,273: INFO Request: User: Hayan : GET /all-groups/
+2024-01-06 16:51:54,273: INFO Response: User: Hayan : GET /all-groups/ 200
+2024-01-06 16:51:58,226: INFO Request: User: Hayan : GET /group-checkin/2
+2024-01-06 16:51:58,274: ERROR Internal Server Error: /group-checkin/2
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 100, in groupCheckin
+    group, files, users = group_service.checkin_group(request, id)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'GroupService' object has no attribute 'checkin_group'
+2024-01-06 16:51:58,277: INFO Response: User: Hayan : GET /group-checkin/2 500
+2024-01-06 16:52:23,801: INFO D:\django projects\files_test\files\views.py changed, reloading.
+2024-01-06 16:52:25,729: INFO Watching for file changes with StatReloader
+2024-01-06 16:52:26,382: INFO Request: User: Hayan : GET /group-checkin/2
+2024-01-06 16:52:26,383: INFO Request: User: admin : GET /__reload__/events/
+2024-01-06 16:52:26,383: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-06 16:52:26,385: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-06 16:52:26,388: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-06 16:52:26,491: ERROR Internal Server Error: /group-checkin/2
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 100, in groupCheckin
+    group, files, users = group_service.groupCheckin(request, id)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: GroupService.groupCheckin() takes 2 positional arguments but 3 were given
+2024-01-06 16:52:26,497: INFO Response: User: Hayan : GET /group-checkin/2 500
+2024-01-06 16:52:26,533: INFO Request: User: Hayan : GET /group-checkin/2
+2024-01-06 16:52:26,555: INFO Request: User: admin : GET /
+2024-01-06 16:52:26,596: ERROR Internal Server Error: /group-checkin/2
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 100, in groupCheckin
+    group, files, users = group_service.groupCheckin(request, id)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: GroupService.groupCheckin() takes 2 positional arguments but 3 were given
+2024-01-06 16:52:26,601: INFO Response: User: Hayan : GET /group-checkin/2 500
+2024-01-06 16:52:26,613: INFO Response: User: admin : GET / 200
+2024-01-06 16:52:26,752: INFO Request: User: admin : GET /favicon.ico
+2024-01-06 16:52:26,752: INFO Response: User: admin : GET /favicon.ico 200
+2024-01-06 16:52:29,321: INFO Request: User: Hayan : GET /all-groups/
+2024-01-06 16:52:29,335: INFO Response: User: Hayan : GET /all-groups/ 200
+2024-01-06 16:52:29,874: INFO Request: User: Hayan : GET /group-checkin/2
+2024-01-06 16:52:29,899: ERROR Internal Server Error: /group-checkin/2
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 100, in groupCheckin
+    group, files, users = group_service.groupCheckin(request, id)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: GroupService.groupCheckin() takes 2 positional arguments but 3 were given
+2024-01-06 16:52:29,913: INFO Response: User: Hayan : GET /group-checkin/2 500
+2024-01-06 16:52:47,326: INFO D:\django projects\files_test\files\views.py changed, reloading.
+2024-01-06 16:52:49,123: INFO Watching for file changes with StatReloader
+2024-01-06 16:52:49,763: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-06 16:52:49,763: INFO Request: User: Hayan : GET /group-checkin/2
+2024-01-06 16:52:49,764: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-06 16:52:49,767: INFO Request: User: admin : GET /__reload__/events/
+2024-01-06 16:52:49,767: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-06 16:52:49,894: ERROR Internal Server Error: /group-checkin/2
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 103, in groupCheckin
+    form = GroupForm(instance=group)
+                              ^^^^^
+UnboundLocalError: cannot access local variable 'group' where it is not associated with a value
+2024-01-06 16:52:49,901: INFO Response: User: Hayan : GET /group-checkin/2 500
+2024-01-06 16:52:49,905: INFO Request: User: Hayan : GET /group-checkin/2
+2024-01-06 16:52:49,953: INFO Request: User: admin : GET /
+2024-01-06 16:52:49,991: ERROR Internal Server Error: /group-checkin/2
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 103, in groupCheckin
+    form = GroupForm(instance=group)
+                              ^^^^^
+UnboundLocalError: cannot access local variable 'group' where it is not associated with a value
+2024-01-06 16:52:50,001: INFO Response: User: Hayan : GET /group-checkin/2 500
+2024-01-06 16:52:50,024: INFO Response: User: admin : GET / 200
+2024-01-06 16:52:50,090: INFO Request: User: Hayan : GET /favicon.ico
+2024-01-06 16:52:50,091: INFO Response: User: Hayan : GET /favicon.ico 200
+2024-01-06 16:52:50,164: INFO Request: User: admin : GET /favicon.ico
+2024-01-06 16:52:50,164: INFO Response: User: admin : GET /favicon.ico 200
+2024-01-06 16:52:59,364: INFO Request: User: Hayan : GET /all-groups/
+2024-01-06 16:52:59,372: INFO Response: User: Hayan : GET /all-groups/ 200
+2024-01-06 16:52:59,440: INFO Request: User: Hayan : GET /favicon.ico
+2024-01-06 16:52:59,440: INFO Response: User: Hayan : GET /favicon.ico 200
+2024-01-06 16:53:00,901: INFO Request: User: Hayan : GET /
+2024-01-06 16:53:00,914: INFO Response: User: Hayan : GET / 200
+2024-01-06 16:53:02,681: INFO Request: User: Hayan : GET /all-groups/
+2024-01-06 16:53:02,689: INFO Response: User: Hayan : GET /all-groups/ 200
+2024-01-06 16:53:03,485: INFO Request: User: Hayan : GET /group-checkin/2
+2024-01-06 16:53:03,521: ERROR Internal Server Error: /group-checkin/2
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 103, in groupCheckin
+    form = GroupForm(instance=group)
+                              ^^^^^
+UnboundLocalError: cannot access local variable 'group' where it is not associated with a value
+2024-01-06 16:53:03,521: INFO Response: User: Hayan : GET /group-checkin/2 500
+2024-01-06 16:53:03,592: INFO Request: User: Hayan : GET /favicon.ico
+2024-01-06 16:53:03,592: INFO Response: User: Hayan : GET /favicon.ico 200
+2024-01-06 16:53:05,890: INFO Request: User: Hayan : GET /group-checkin/2
+2024-01-06 16:53:05,923: ERROR Internal Server Error: /group-checkin/2
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 103, in groupCheckin
+    form = GroupForm(instance=group)
+                              ^^^^^
+UnboundLocalError: cannot access local variable 'group' where it is not associated with a value
+2024-01-06 16:53:05,923: INFO Response: User: Hayan : GET /group-checkin/2 500
+2024-01-06 16:53:05,994: INFO Request: User: Hayan : GET /favicon.ico
+2024-01-06 16:53:05,995: INFO Response: User: Hayan : GET /favicon.ico 200
+2024-01-06 16:53:09,320: INFO Request: User: Hayan : GET /group-checkin/2
+2024-01-06 16:53:09,356: ERROR Internal Server Error: /group-checkin/2
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 103, in groupCheckin
+    form = GroupForm(instance=group)
+                              ^^^^^
+UnboundLocalError: cannot access local variable 'group' where it is not associated with a value
+2024-01-06 16:53:09,356: INFO Response: User: Hayan : GET /group-checkin/2 500
+2024-01-06 16:53:09,427: INFO Request: User: Hayan : GET /favicon.ico
+2024-01-06 16:53:09,427: INFO Response: User: Hayan : GET /favicon.ico 200
+2024-01-06 16:54:22,041: INFO D:\django projects\files_test\files\views.py changed, reloading.
+2024-01-06 16:54:23,620: INFO Watching for file changes with StatReloader
+2024-01-06 16:54:24,253: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-06 16:54:24,254: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-06 16:54:24,255: INFO Request: User: admin : GET /__reload__/events/
+2024-01-06 16:54:24,255: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-06 16:54:24,328: INFO Request: User: admin : GET /
+2024-01-06 16:54:24,338: INFO Request: User: Hayan : GET /group-checkin/2
+2024-01-06 16:54:24,345: INFO Response: User: Hayan : GET /group-checkin/2 302
+2024-01-06 16:54:24,386: INFO Response: User: admin : GET / 200
+2024-01-06 16:54:24,393: INFO Request: User: Hayan : GET /all-groups/
+2024-01-06 16:54:24,402: INFO Response: User: Hayan : GET /all-groups/ 200
+2024-01-06 16:54:24,515: INFO Request: User: Hayan : GET /favicon.ico
+2024-01-06 16:54:24,516: INFO Response: User: Hayan : GET /favicon.ico 200
+2024-01-06 16:54:27,327: INFO Request: User: Hayan : GET /all-groups/
+2024-01-06 16:54:27,334: INFO Response: User: Hayan : GET /all-groups/ 200
+2024-01-06 16:54:28,540: INFO Request: User: Hayan : GET /group-checkin/2
+2024-01-06 16:54:28,540: INFO Response: User: Hayan : GET /group-checkin/2 302
+2024-01-06 16:54:28,572: INFO Request: User: Hayan : GET /all-groups/
+2024-01-06 16:54:28,572: INFO Response: User: Hayan : GET /all-groups/ 200
+2024-01-06 16:54:54,493: INFO D:\django projects\files_test\files\services.py changed, reloading.
+2024-01-06 16:54:56,211: INFO Watching for file changes with StatReloader
+2024-01-06 16:54:56,725: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-06 16:54:56,725: INFO Request: User: admin : GET /__reload__/events/
+2024-01-06 16:54:56,725: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-06 16:54:56,726: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-06 16:54:56,726: INFO Request: User: Hayan : GET /group-checkin/2
+2024-01-06 16:54:56,747: INFO Response: User: Hayan : GET /group-checkin/2 302
+2024-01-06 16:54:56,856: INFO Request: User: Hayan : GET /all-groups/
+2024-01-06 16:54:56,862: INFO Request: User: admin : GET /
+2024-01-06 16:54:56,887: INFO Response: User: Hayan : GET /all-groups/ 200
+2024-01-06 16:54:56,901: INFO Response: User: admin : GET / 200
+2024-01-06 16:54:57,055: INFO Request: User: admin : GET /favicon.ico
+2024-01-06 16:54:57,055: INFO Response: User: admin : GET /favicon.ico 200
+2024-01-06 16:54:57,912: INFO Request: User: Hayan : GET /group-checkin/2
+2024-01-06 16:54:57,918: INFO Response: User: Hayan : GET /group-checkin/2 302
+2024-01-06 16:54:57,947: INFO Request: User: Hayan : GET /all-groups/
+2024-01-06 16:54:57,949: INFO Response: User: Hayan : GET /all-groups/ 200
+2024-01-06 16:55:04,854: INFO D:\django projects\files_test\files\services.py changed, reloading.
+2024-01-06 16:55:06,446: INFO Watching for file changes with StatReloader
+2024-01-06 16:55:06,977: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-06 16:55:06,977: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-06 16:55:06,977: INFO Request: User: Hayan : GET /all-groups/
+2024-01-06 16:55:06,979: INFO Request: User: admin : GET /__reload__/events/
+2024-01-06 16:55:06,979: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-06 16:55:07,086: INFO Response: User: Hayan : GET /all-groups/ 200
+2024-01-06 16:55:07,107: INFO Request: User: Hayan : GET /all-groups/
+2024-01-06 16:55:07,131: INFO Response: User: Hayan : GET /all-groups/ 200
+2024-01-06 16:55:07,143: INFO Request: User: admin : GET /
+2024-01-06 16:55:07,163: INFO Response: User: admin : GET / 200
+2024-01-06 16:55:07,304: INFO Request: User: admin : GET /favicon.ico
+2024-01-06 16:55:07,304: INFO Response: User: admin : GET /favicon.ico 200
+2024-01-06 16:55:07,858: INFO Request: User: Hayan : GET /group-checkin/2
+2024-01-06 16:55:07,863: INFO Response: User: Hayan : GET /group-checkin/2 302
+2024-01-06 16:55:07,899: INFO Request: User: Hayan : GET /all-groups/
+2024-01-06 16:55:07,899: INFO Response: User: Hayan : GET /all-groups/ 200
+2024-01-06 16:55:20,548: INFO D:\django projects\files_test\files\services.py changed, reloading.
+2024-01-06 16:55:22,095: INFO Watching for file changes with StatReloader
+2024-01-06 16:55:22,575: INFO Request: User: admin : GET /__reload__/events/
+2024-01-06 16:55:22,576: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-06 16:55:22,576: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-06 16:55:22,576: INFO Request: User: Hayan : GET /group-checkin/2
+2024-01-06 16:55:22,576: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-06 16:55:22,587: INFO Response: User: Hayan : GET /group-checkin/2 302
+2024-01-06 16:55:22,709: INFO Request: User: Hayan : GET /all-groups/
+2024-01-06 16:55:22,714: INFO Request: User: admin : GET /
+2024-01-06 16:55:22,748: INFO Response: User: Hayan : GET /all-groups/ 200
+2024-01-06 16:55:22,754: INFO Response: User: admin : GET / 200
+2024-01-06 16:55:22,905: INFO Request: User: admin : GET /favicon.ico
+2024-01-06 16:55:22,905: INFO Response: User: admin : GET /favicon.ico 200
+2024-01-06 16:55:23,645: INFO Request: User: Hayan : GET /group-checkin/2
+2024-01-06 16:55:23,648: INFO Response: User: Hayan : GET /group-checkin/2 302
+2024-01-06 16:55:23,678: INFO Request: User: Hayan : GET /all-groups/
+2024-01-06 16:55:23,678: INFO Response: User: Hayan : GET /all-groups/ 200
+2024-01-06 16:55:26,765: INFO Request: User: Hayan : GET /group-checkin/1
+2024-01-06 16:55:26,765: INFO Response: User: Hayan : GET /group-checkin/1 302
+2024-01-06 16:55:26,799: INFO Request: User: Hayan : GET /all-groups/
+2024-01-06 16:55:26,799: INFO Response: User: Hayan : GET /all-groups/ 200
+2024-01-06 16:55:33,118: INFO Request: User: admin : GET /all-groups/
+2024-01-06 16:55:33,130: INFO Response: User: admin : GET /all-groups/ 200
+2024-01-06 16:55:33,241: INFO Request: User: admin : GET /favicon.ico
+2024-01-06 16:55:33,241: INFO Response: User: admin : GET /favicon.ico 200
+2024-01-06 16:55:33,775: INFO Request: User: admin : GET /group-checkin/2
+2024-01-06 16:55:33,797: INFO Response: User: admin : GET /group-checkin/2 200
+2024-01-06 16:55:39,875: INFO Request: User: admin : POST /group-checkin/2
+2024-01-06 16:55:40,000: INFO Response: User: admin : POST /group-checkin/2 302
+2024-01-06 16:55:40,088: INFO Request: User: admin : GET /all-groups/
+2024-01-06 16:55:40,097: INFO Response: User: admin : GET /all-groups/ 200
+2024-01-06 16:55:41,047: INFO Request: User: admin : GET /group-checkin/1
+2024-01-06 16:55:41,095: INFO Response: User: admin : GET /group-checkin/1 200
+2024-01-06 16:55:43,324: INFO Request: User: admin : POST /group-checkin/1
+2024-01-06 16:55:43,435: INFO Response: User: admin : POST /group-checkin/1 302
+2024-01-06 16:55:43,530: INFO Request: User: admin : GET /all-groups/
+2024-01-06 16:55:43,545: INFO Response: User: admin : GET /all-groups/ 200

@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User, Group
 from django.core.exceptions import ValidationError
 from django.contrib import messages
+from django.db import transaction
+
 
 def delete_user_with_filelock_check(self):
     if FileLock.objects.filter(user=self).exists():
@@ -42,6 +44,12 @@ class File(models.Model):
         self.file.delete()
         super().delete()
 
+    @transaction.atomic 
+    def lock_file(self, user):
+        FileLock.objects.create(file=self, user=user)
+
+    def unlock_file(self, user):
+        FileLock.objects.filter(file=self, user=user).delete()
 
 # class UserProfile(models.Model):
 #     user = models.OneToOneField(User, on_delete=models.CASCADE)
