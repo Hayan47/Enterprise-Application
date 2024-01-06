@@ -6,14 +6,21 @@ from django.db import transaction
 from django.contrib import messages
 from django_celery_beat.models import PeriodicTask, ClockedSchedule
 from datetime import timedelta
+from django.contrib.auth.decorators import login_required
+from django.views.decorators.cache import cache_page
+import logging
+
+logger = logging.getLogger(__name__) # files.views
 
 
+@login_required
 def home(request):
     files = File.objects.all()
     if request.method == 'POST':
         bulkCheckin(request=request)
     return render(request, 'home.html', {'files':files})
 
+@login_required
 def bulkCheckin(request):
     selected_files_ids= request.POST.getlist('selected_files')
     selected_files = File.objects.filter(id__in=selected_files_ids)
@@ -43,7 +50,7 @@ def bulkCheckin(request):
                 one_off=True
             )
 
-
+@login_required
 def checkin(request, id):
         file = File.objects.get(id=id)
         form = FileForm(instance=file) 
@@ -84,10 +91,12 @@ def checkin(request, id):
             )
         return render(request, 'checkin.html', {'form': form, 'file':file})
 
+
 def check_file_status(request, id):
     file = File.objects.get(id=id)
     return JsonResponse({'is_free': file.is_free})
 
+@login_required
 def groupCheckin(request, id):
     group = Group.objects.get(id=id)
     files = group.file_set.all()
@@ -104,7 +113,7 @@ def groupCheckin(request, id):
             return redirect('all-groups')
     return render(request, 'group_checkin.html', {'group': group, 'files':files, 'users':users, 'form':form})
 
-
+@login_required
 def addFile(request):
     form = FileForm()
     if request.method == 'POST': 
@@ -116,6 +125,7 @@ def addFile(request):
             return redirect('home')  
     return render(request, 'file_form.html', {'form': form})
 
+@login_required
 def addGroup(request):
     form = GroupForm()
     if request.method == 'POST': 
@@ -131,14 +141,15 @@ def allGroups(request):
     groups = Group.objects.all()
     return render(request, 'all_groups.html', {'groups': groups})
 
-    
 @transaction.atomic 
 def lock_file(file, user):
     FileLock.objects.create(file=file, user=user)
 
+
 def unlock_file(file, user):
     FileLock.objects.filter(file=file, user=user).delete()
 
+@login_required
 def downloadFile(request, id):
     file = File.objects.get(id=id)
     filename = file.file.name
@@ -146,9 +157,9 @@ def downloadFile(request, id):
         file_contents = f.read()
     response = HttpResponse(file_contents, content_type='application/octet-stream')
     response['Content-Disposition'] = f'attachment; filename="{file.file.name}"'
-
     return response
 
+@login_required
 def deleteFile(request, id):
     file = File.objects.get(id=id)
     if request.method == 'POST':
@@ -156,6 +167,7 @@ def deleteFile(request, id):
         return redirect('home')
     return render(request, 'delete.html', {'obj': file})
 
+@login_required
 def deleteGroup(request, id):
     group = Group.objects.get(id=id)
     if request.method == 'POST':
@@ -167,12 +179,14 @@ def deleteGroup(request, id):
         return redirect('all-groups')
     return render(request, 'delete.html', {'obj': group})
 
+@login_required
 def search(request):
     if request.method == 'POST':
         searched = request.POST.get('searched')
         files = File.objects.filter(file__icontains=searched)
     return render (request, 'search.html', {'searched':searched, 'files':files})
 
+@login_required
 def generateReport(request, id):
     file = File.objects.get(id=id)
     checkins = Checkin.objects.filter(file=file)

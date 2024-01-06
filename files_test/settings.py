@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'django_browser_reload',
     "crispy_forms",
     "crispy_tailwind",
-    'django_celery_beat',          
+    'django_celery_beat',
+    'debug_toolbar',        
 ]
 
 
@@ -58,9 +59,14 @@ INTERNAL_IPS = [
     "127.0.0.1",
 ]
 
+def show_toolbar(request):
+    return True
+SHOW_TOOLBAR_CALLBACK = show_toolbar
+
 NPM_BIN_PATH = "C:/Program Files/nodejs/npm.cmd"
 
 MIDDLEWARE = [
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -69,6 +75,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "django_browser_reload.middleware.BrowserReloadMiddleware",
+    'files_test.middleware.RequestResponseLoggingMiddleware',
 ]
 
 ROOT_URLCONF = 'files_test.urls'
@@ -151,6 +158,8 @@ MEDIA_URL = '/media/'
 
 DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 
+LOGIN_URL = 'login/'
+
 LOGIN_REDIRECT_URL = "/"
 
 LOGOUT_REDIRECT_URL = "/"
@@ -172,4 +181,35 @@ CELERY_RESULT_EXTENDED = True
 
 CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
 
-    
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.redis.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379",
+    }
+}
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "simple": {
+            "format": "{asctime}: {levelname} {message}",
+            "style": "{",
+        },
+    },
+    "handlers": {
+        "file": {
+            "level": "INFO",
+            "class": "logging.FileHandler",
+            "formatter": "simple",
+            "filename": "general.log",
+        },
+    },
+    "loggers": {
+        "": {
+            "level": "INFO",
+            "handlers": ["file"],
+            "propagate": True,
+        }
+    },
+}
