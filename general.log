@@ -7272,3 +7272,2233 @@ django.db.utils.IntegrityError: UNIQUE constraint failed: files_filelock.file_id
 2024-01-06 23:08:17,134: INFO Request: User: admin : GET /
 2024-01-06 23:08:17,162: INFO Response: User: admin : GET / 200
 2024-01-06 23:21:16,738: INFO D:\django projects\files_test\files\services.py changed, reloading.
+2024-01-07 12:36:12,129: INFO Watching for file changes with StatReloader
+2024-01-07 12:36:18,947: INFO Request: User: admin : GET /
+2024-01-07 12:36:19,529: INFO Response: User: admin : GET / 200
+2024-01-07 12:36:20,098: INFO Request: User: admin : GET /favicon.ico
+2024-01-07 12:36:20,098: INFO Response: User: admin : GET /favicon.ico 200
+2024-01-07 12:36:20,145: INFO Request: User: admin : GET /__reload__/events/
+2024-01-07 12:36:20,148: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-07 12:36:25,198: INFO Request: User: admin : GET /checkin/4
+2024-01-07 12:36:25,554: INFO Response: User: admin : GET /checkin/4 200
+2024-01-07 12:36:26,624: INFO Request: User: admin : POST /checkin/4
+2024-01-07 12:36:26,822: INFO Response: User: admin : POST /checkin/4 302
+2024-01-07 12:36:26,963: INFO Request: User: admin : GET /
+2024-01-07 12:36:27,004: INFO Response: User: admin : GET / 200
+2024-01-07 12:36:52,211: INFO Watching for file changes with StatReloader
+2024-01-07 12:36:53,779: INFO Request: User: AnonymousUser : GET /__reload__/events/
+2024-01-07 12:36:53,779: INFO Response: User: AnonymousUser : GET /__reload__/events/ 200
+2024-01-07 12:36:53,937: INFO Request: User: AnonymousUser : GET /
+2024-01-07 12:36:53,937: INFO Response: User: AnonymousUser : GET / 302
+2024-01-07 12:36:53,969: INFO Request: User: AnonymousUser : GET /login/
+2024-01-07 12:36:54,116: INFO Response: User: AnonymousUser : GET /login/ 200
+2024-01-07 12:37:03,333: INFO Request: User: AnonymousUser : POST /login/
+2024-01-07 12:37:04,448: INFO Response: User: Hayan : POST /login/ 302
+2024-01-07 12:37:04,678: INFO Request: User: Hayan : GET /
+2024-01-07 12:37:05,056: ERROR Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column files_file.file does not exist
+LINE 1: SELECT "files_file"."id", "files_file"."file", "files_file"....
+                                  ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 23, in home
+    return render(request, 'home.html', {'files':files})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\test\utils.py", line 112, in instrumented_test_render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\test\utils.py", line 112, in instrumented_test_render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\defaulttags.py", line 321, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\defaulttags.py", line 194, in render
+    len_values = len(values)
+                 ^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\query.py", line 380, in __len__
+    self._fetch_all()
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\debug_toolbar\panels\sql\tracking.py", line 252, in execute
+    return self._record(super().execute, sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\debug_toolbar\panels\sql\tracking.py", line 177, in _record
+    return method(sql, params)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: column files_file.file does not exist
+LINE 1: SELECT "files_file"."id", "files_file"."file", "files_file"....
+                                  ^
+
+2024-01-07 12:37:05,096: INFO Response: User: Hayan : GET / 500
+2024-01-07 12:37:08,071: INFO Request: User: Hayan : GET /login/
+2024-01-07 12:37:08,081: INFO Response: User: Hayan : GET /login/ 200
+2024-01-07 12:38:25,025: INFO Watching for file changes with StatReloader
+2024-01-07 12:38:26,343: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-07 12:38:26,343: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-07 12:38:26,486: INFO Request: User: Hayan : GET /login/
+2024-01-07 12:38:26,518: INFO Response: User: Hayan : GET /login/ 200
+2024-01-07 12:38:38,605: INFO Request: User: Hayan : POST /login/
+2024-01-07 12:38:39,388: INFO Response: User: admin : POST /login/ 302
+2024-01-07 12:38:39,519: INFO Request: User: admin : GET /
+2024-01-07 12:38:39,672: ERROR Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column files_file.file does not exist
+LINE 1: SELECT "files_file"."id", "files_file"."file", "files_file"....
+                                  ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 23, in home
+    return render(request, 'home.html', {'files':files})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\test\utils.py", line 112, in instrumented_test_render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\test\utils.py", line 112, in instrumented_test_render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\defaulttags.py", line 321, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\defaulttags.py", line 194, in render
+    len_values = len(values)
+                 ^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\query.py", line 380, in __len__
+    self._fetch_all()
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\debug_toolbar\panels\sql\tracking.py", line 252, in execute
+    return self._record(super().execute, sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\debug_toolbar\panels\sql\tracking.py", line 177, in _record
+    return method(sql, params)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: column files_file.file does not exist
+LINE 1: SELECT "files_file"."id", "files_file"."file", "files_file"....
+                                  ^
+
+2024-01-07 12:38:39,751: INFO Response: User: admin : GET / 500
+2024-01-07 12:39:09,580: INFO Request: User: admin : GET /login/
+2024-01-07 12:39:09,580: INFO Response: User: admin : GET /login/ 200
+2024-01-07 12:39:18,195: INFO Request: User: admin : GET /admin/
+2024-01-07 12:39:18,408: INFO Response: User: admin : GET /admin/ 200
+2024-01-07 12:39:19,908: INFO Request: User: admin : GET /
+2024-01-07 12:39:20,154: ERROR Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column files_file.file does not exist
+LINE 1: SELECT "files_file"."id", "files_file"."file", "files_file"....
+                                  ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 23, in home
+    return render(request, 'home.html', {'files':files})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\test\utils.py", line 112, in instrumented_test_render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\test\utils.py", line 112, in instrumented_test_render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\defaulttags.py", line 321, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\template\defaulttags.py", line 194, in render
+    len_values = len(values)
+                 ^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\query.py", line 380, in __len__
+    self._fetch_all()
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\debug_toolbar\panels\sql\tracking.py", line 252, in execute
+    return self._record(super().execute, sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\debug_toolbar\panels\sql\tracking.py", line 177, in _record
+    return method(sql, params)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: column files_file.file does not exist
+LINE 1: SELECT "files_file"."id", "files_file"."file", "files_file"....
+                                  ^
+
+2024-01-07 12:39:20,199: INFO Response: User: admin : GET / 500
+2024-01-07 12:39:24,099: INFO Request: User: admin : GET /admin/files/file/
+2024-01-07 12:39:24,340: ERROR Internal Server Error: /admin/files/file/
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column files_file.file does not exist
+LINE 1: SELECT "files_file"."id", "files_file"."file", "files_file"....
+                                  ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\contrib\admin\options.py", line 688, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\contrib\admin\options.py", line 2065, in changelist_view
+    "selection_note": _("0 of %(cnt)s selected") % {"cnt": len(cl.result_list)},
+                                                           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\query.py", line 380, in __len__
+    self._fetch_all()
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\debug_toolbar\panels\sql\tracking.py", line 252, in execute
+    return self._record(super().execute, sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\debug_toolbar\panels\sql\tracking.py", line 177, in _record
+    return method(sql, params)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: column files_file.file does not exist
+LINE 1: SELECT "files_file"."id", "files_file"."file", "files_file"....
+                                  ^
+
+2024-01-07 12:39:24,355: INFO Response: User: admin : GET /admin/files/file/ 500
+2024-01-07 12:39:26,255: INFO Request: User: admin : GET /admin/
+2024-01-07 12:39:26,330: INFO Response: User: admin : GET /admin/ 200
+2024-01-07 12:39:27,754: INFO Request: User: admin : GET /admin/files/group/
+2024-01-07 12:39:27,908: ERROR Internal Server Error: /admin/files/group/
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedColumn: column files_group.group_ptr_id does not exist
+LINE 1: ...d" FROM "files_group" INNER JOIN "auth_group" ON ("files_gro...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\contrib\admin\options.py", line 688, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\views\decorators\cache.py", line 62, in _wrapper_view_func
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\utils\decorators.py", line 134, in _wrapper_view
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\contrib\admin\options.py", line 2065, in changelist_view
+    "selection_note": _("0 of %(cnt)s selected") % {"cnt": len(cl.result_list)},
+                                                           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\query.py", line 380, in __len__
+    self._fetch_all()
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\query.py", line 1881, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\debug_toolbar\panels\sql\tracking.py", line 252, in execute
+    return self._record(super().execute, sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\debug_toolbar\panels\sql\tracking.py", line 177, in _record
+    return method(sql, params)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: column files_group.group_ptr_id does not exist
+LINE 1: ...d" FROM "files_group" INNER JOIN "auth_group" ON ("files_gro...
+                                                             ^
+
+2024-01-07 12:39:27,937: INFO Response: User: admin : GET /admin/files/group/ 500
+2024-01-07 13:07:48,355: INFO Watching for file changes with StatReloader
+2024-01-07 13:07:57,298: INFO Request: User: AnonymousUser : GET /
+2024-01-07 13:07:57,318: INFO Response: User: AnonymousUser : GET / 302
+2024-01-07 13:07:57,483: INFO Request: User: AnonymousUser : GET /login/
+2024-01-07 13:07:57,582: INFO Response: User: AnonymousUser : GET /login/ 200
+2024-01-07 13:07:57,840: INFO Request: User: AnonymousUser : GET /__reload__/events/
+2024-01-07 13:07:57,841: INFO Response: User: AnonymousUser : GET /__reload__/events/ 200
+2024-01-07 13:07:59,592: INFO Request: User: AnonymousUser : POST /login/
+2024-01-07 13:08:00,638: INFO Response: User: AnonymousUser : POST /login/ 200
+2024-01-07 13:08:00,757: INFO Request: User: AnonymousUser : GET /__reload__/events/
+2024-01-07 13:08:00,758: INFO Response: User: AnonymousUser : GET /__reload__/events/ 200
+2024-01-07 13:08:05,902: INFO Request: User: AnonymousUser : GET /register
+2024-01-07 13:08:05,955: INFO Response: User: AnonymousUser : GET /register 404
+2024-01-07 13:08:05,996: INFO Request: User: AnonymousUser : GET /register/
+2024-01-07 13:08:06,089: INFO Response: User: AnonymousUser : GET /register/ 200
+2024-01-07 13:08:06,256: INFO Request: User: AnonymousUser : GET /__reload__/events/
+2024-01-07 13:08:06,257: INFO Response: User: AnonymousUser : GET /__reload__/events/ 200
+2024-01-07 13:08:24,184: INFO Request: User: AnonymousUser : POST /register/
+2024-01-07 13:08:25,180: INFO Response: User: AnonymousUser : POST /register/ 302
+2024-01-07 13:08:25,214: INFO Request: User: AnonymousUser : GET /
+2024-01-07 13:08:25,215: INFO Response: User: AnonymousUser : GET / 302
+2024-01-07 13:08:25,237: INFO Request: User: AnonymousUser : GET /login/
+2024-01-07 13:08:25,244: INFO Response: User: AnonymousUser : GET /login/ 200
+2024-01-07 13:08:27,238: INFO Request: User: AnonymousUser : POST /login/
+2024-01-07 13:08:28,029: INFO Response: User: Hayan : POST /login/ 302
+2024-01-07 13:08:28,141: INFO Request: User: Hayan : GET /
+2024-01-07 13:08:28,209: INFO Response: User: Hayan : GET / 200
+2024-01-07 13:08:46,415: INFO Request: User: Hayan : GET /admin/
+2024-01-07 13:08:46,432: INFO Response: User: Hayan : GET /admin/ 302
+2024-01-07 13:08:46,583: INFO Request: User: Hayan : GET /admin/login/
+2024-01-07 13:08:46,704: INFO Response: User: Hayan : GET /admin/login/ 200
+2024-01-07 13:09:15,297: INFO Watching for file changes with StatReloader
+2024-01-07 13:09:16,362: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-07 13:09:16,362: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-07 13:09:16,364: INFO Request: User: Hayan : POST /admin/login/
+2024-01-07 13:09:16,507: INFO Request: User: Hayan : GET /admin/login/
+2024-01-07 13:09:16,573: INFO Response: User: Hayan : GET /admin/login/ 200
+2024-01-07 13:09:17,299: INFO Response: User: admin : POST /admin/login/ 302
+2024-01-07 13:09:18,427: INFO Request: User: AnonymousUser : POST /admin/login/
+2024-01-07 13:09:19,344: INFO Response: User: admin : POST /admin/login/ 302
+2024-01-07 13:09:19,529: INFO Request: User: admin : GET /admin/
+2024-01-07 13:09:19,600: INFO Response: User: admin : GET /admin/ 200
+2024-01-07 13:09:28,546: INFO Request: User: admin : GET /admin/files/file/
+2024-01-07 13:09:28,711: INFO Response: User: admin : GET /admin/files/file/ 200
+2024-01-07 13:09:28,961: INFO Request: User: admin : GET /admin/jsi18n/
+2024-01-07 13:09:28,975: INFO Response: User: admin : GET /admin/jsi18n/ 200
+2024-01-07 13:09:42,441: INFO Watching for file changes with StatReloader
+2024-01-07 13:09:43,117: INFO Request: User: AnonymousUser : GET /__reload__/events/
+2024-01-07 13:09:43,117: INFO Response: User: AnonymousUser : GET /__reload__/events/ 200
+2024-01-07 13:09:43,217: INFO Request: User: AnonymousUser : GET /admin/files/file/
+2024-01-07 13:09:43,255: INFO Response: User: AnonymousUser : GET /admin/files/file/ 302
+2024-01-07 13:09:43,330: INFO Request: User: AnonymousUser : GET /admin/login/
+2024-01-07 13:09:43,378: INFO Response: User: AnonymousUser : GET /admin/login/ 200
+2024-01-07 13:09:43,723: INFO Request: User: AnonymousUser : GET /admin/login/
+2024-01-07 13:09:43,744: INFO Response: User: AnonymousUser : GET /admin/login/ 200
+2024-01-07 13:09:45,187: INFO Request: User: AnonymousUser : POST /admin/login/
+2024-01-07 13:09:46,377: INFO Response: User: admin : POST /admin/login/ 302
+2024-01-07 13:09:46,567: INFO Request: User: admin : GET /admin/files/file/
+2024-01-07 13:09:46,695: INFO Response: User: admin : GET /admin/files/file/ 200
+2024-01-07 13:09:46,823: INFO Request: User: admin : GET /admin/jsi18n/
+2024-01-07 13:09:46,828: INFO Response: User: admin : GET /admin/jsi18n/ 200
+2024-01-07 13:09:52,541: INFO Request: User: admin : GET /
+2024-01-07 13:09:52,650: INFO Response: User: admin : GET / 200
+2024-01-07 13:10:08,258: INFO D:\django projects\files_test\files_test\configurations.py changed, reloading.
+2024-01-07 13:10:10,666: INFO Watching for file changes with StatReloader
+2024-01-07 13:10:11,294: INFO Request: User: admin : GET /__reload__/events/
+2024-01-07 13:10:11,295: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-07 13:10:11,358: INFO Request: User: admin : GET /
+2024-01-07 13:10:11,385: INFO Response: User: admin : GET / 200
+2024-01-07 13:10:12,782: INFO Request: User: admin : GET /
+2024-01-07 13:10:12,828: INFO Response: User: admin : GET / 200
+2024-01-07 13:10:14,549: INFO Request: User: admin : GET /admin/files/file/
+2024-01-07 13:10:14,697: INFO Response: User: admin : GET /admin/files/file/ 200
+2024-01-07 13:10:14,802: INFO Request: User: admin : GET /admin/jsi18n/
+2024-01-07 13:10:14,807: INFO Response: User: admin : GET /admin/jsi18n/ 200
+2024-01-07 13:10:23,853: INFO Watching for file changes with StatReloader
+2024-01-07 13:10:24,578: INFO Request: User: AnonymousUser : GET /__reload__/events/
+2024-01-07 13:10:24,579: INFO Response: User: AnonymousUser : GET /__reload__/events/ 200
+2024-01-07 13:10:24,655: INFO Request: User: AnonymousUser : GET /admin/files/file/
+2024-01-07 13:10:24,675: INFO Response: User: AnonymousUser : GET /admin/files/file/ 302
+2024-01-07 13:10:24,706: INFO Request: User: AnonymousUser : GET /admin/login/
+2024-01-07 13:10:24,746: INFO Response: User: AnonymousUser : GET /admin/login/ 200
+2024-01-07 13:10:36,188: INFO D:\django projects\files_test\files_test\configurations.py changed, reloading.
+2024-01-07 13:10:38,620: INFO Watching for file changes with StatReloader
+2024-01-07 13:10:39,364: INFO Request: User: AnonymousUser : GET /__reload__/events/
+2024-01-07 13:10:39,364: INFO Response: User: AnonymousUser : GET /__reload__/events/ 200
+2024-01-07 13:10:39,450: INFO Request: User: AnonymousUser : GET /admin/login/
+2024-01-07 13:10:39,526: INFO Response: User: AnonymousUser : GET /admin/login/ 200
+2024-01-07 13:10:40,674: INFO Request: User: AnonymousUser : POST /admin/login/
+2024-01-07 13:10:41,798: INFO Response: User: admin : POST /admin/login/ 302
+2024-01-07 13:10:41,919: INFO Request: User: admin : GET /admin/files/file/
+2024-01-07 13:10:41,975: INFO Response: User: admin : GET /admin/files/file/ 200
+2024-01-07 13:10:42,159: INFO Request: User: admin : GET /admin/jsi18n/
+2024-01-07 13:10:42,161: INFO Response: User: admin : GET /admin/jsi18n/ 200
+2024-01-07 13:10:45,377: INFO Request: User: admin : GET /
+2024-01-07 13:10:45,395: INFO Response: User: admin : GET / 200
+2024-01-07 13:10:47,011: INFO Request: User: admin : GET /add-file/
+2024-01-07 13:10:47,103: INFO Response: User: admin : GET /add-file/ 200
+2024-01-07 13:10:50,420: INFO Request: User: admin : GET /add-group/
+2024-01-07 13:10:50,475: INFO Response: User: admin : GET /add-group/ 200
+2024-01-07 13:10:59,073: INFO Request: User: admin : POST /add-group/
+2024-01-07 13:10:59,106: INFO Response: User: admin : POST /add-group/ 302
+2024-01-07 13:10:59,303: INFO Request: User: admin : GET /all-groups/
+2024-01-07 13:10:59,375: INFO Response: User: admin : GET /all-groups/ 200
+2024-01-07 13:11:01,293: INFO Request: User: admin : GET /group-checkin/1
+2024-01-07 13:11:01,462: INFO Response: User: admin : GET /group-checkin/1 200
+2024-01-07 13:11:03,075: INFO Request: User: admin : POST /group-checkin/1
+2024-01-07 13:11:03,117: INFO Response: User: admin : POST /group-checkin/1 302
+2024-01-07 13:11:03,319: INFO Request: User: admin : GET /all-groups/
+2024-01-07 13:11:03,333: INFO Response: User: admin : GET /all-groups/ 200
+2024-01-07 13:11:04,328: INFO Request: User: admin : GET /add-file/
+2024-01-07 13:11:04,348: INFO Response: User: admin : GET /add-file/ 200
+2024-01-07 13:11:10,011: INFO Request: User: admin : POST /add-file/
+2024-01-07 13:11:10,063: INFO Response: User: admin : POST /add-file/ 302
+2024-01-07 13:11:10,239: INFO Request: User: admin : GET /
+2024-01-07 13:11:10,273: INFO Response: User: admin : GET / 200
+2024-01-07 13:11:17,223: INFO Request: User: admin : GET /checkin/1
+2024-01-07 13:11:17,405: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 13:11:18,531: INFO Request: User: admin : POST /checkin/1
+2024-01-07 13:11:18,627: INFO Response: User: admin : POST /checkin/1 302
+2024-01-07 13:11:18,927: INFO Request: User: admin : GET /
+2024-01-07 13:11:18,960: INFO Response: User: admin : GET / 200
+2024-01-07 13:11:21,890: INFO Request: User: admin : GET /checkin/1
+2024-01-07 13:11:21,997: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 13:11:29,078: INFO Request: User: AnonymousUser : GET /
+2024-01-07 13:11:29,080: INFO Response: User: AnonymousUser : GET / 302
+2024-01-07 13:11:29,117: INFO Request: User: AnonymousUser : GET /login/
+2024-01-07 13:11:29,147: INFO Response: User: AnonymousUser : GET /login/ 200
+2024-01-07 13:11:32,632: INFO Request: User: AnonymousUser : GET /favicon.ico
+2024-01-07 13:11:32,635: INFO Response: User: AnonymousUser : GET /favicon.ico 200
+2024-01-07 13:11:32,668: INFO Request: User: AnonymousUser : GET /__reload__/events/
+2024-01-07 13:11:32,669: INFO Response: User: AnonymousUser : GET /__reload__/events/ 200
+2024-01-07 13:11:34,314: INFO Request: User: AnonymousUser : POST /login/
+2024-01-07 13:11:35,785: INFO Response: User: Hayan : POST /login/ 302
+2024-01-07 13:11:35,956: INFO Request: User: Hayan : GET /
+2024-01-07 13:11:35,987: INFO Response: User: Hayan : GET / 200
+2024-01-07 13:11:36,272: INFO Request: User: Hayan : GET /favicon.ico
+2024-01-07 13:11:36,272: INFO Response: User: Hayan : GET /favicon.ico 200
+2024-01-07 13:11:36,294: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-07 13:11:36,294: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-07 13:11:37,489: INFO Request: User: Hayan : GET /checkin/1
+2024-01-07 13:11:37,506: INFO Response: User: Hayan : GET /checkin/1 302
+2024-01-07 13:11:37,686: INFO Request: User: Hayan : GET /
+2024-01-07 13:11:37,724: INFO Response: User: Hayan : GET / 200
+2024-01-07 13:11:38,015: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-07 13:11:38,015: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-07 13:11:43,426: INFO Request: User: admin : POST /checkin/1
+2024-01-07 13:11:43,508: INFO Response: User: admin : POST /checkin/1 302
+2024-01-07 13:11:43,775: INFO Request: User: admin : GET /
+2024-01-07 13:11:43,799: INFO Response: User: admin : GET / 200
+2024-01-07 13:11:46,146: INFO Request: User: Hayan : GET /checkin/1
+2024-01-07 13:11:46,231: INFO Response: User: Hayan : GET /checkin/1 200
+2024-01-07 13:11:51,598: INFO Request: User: Hayan : POST /checkin/1
+2024-01-07 13:11:51,678: INFO Response: User: Hayan : POST /checkin/1 302
+2024-01-07 13:11:51,962: INFO Request: User: Hayan : GET /
+2024-01-07 13:11:51,985: INFO Response: User: Hayan : GET / 200
+2024-01-07 13:11:52,699: INFO Request: User: Hayan : GET /all-groups/
+2024-01-07 13:11:52,721: INFO Response: User: Hayan : GET /all-groups/ 200
+2024-01-07 13:11:53,503: INFO Request: User: Hayan : GET /group-checkin/1
+2024-01-07 13:11:53,513: INFO Response: User: Hayan : GET /group-checkin/1 302
+2024-01-07 13:11:53,691: INFO Request: User: Hayan : GET /all-groups/
+2024-01-07 13:11:53,710: INFO Response: User: Hayan : GET /all-groups/ 200
+2024-01-07 13:11:56,327: INFO Request: User: admin : GET /add-group/
+2024-01-07 13:11:56,337: INFO Response: User: admin : GET /add-group/ 200
+2024-01-07 13:11:56,898: INFO Request: User: admin : GET /all-groups/
+2024-01-07 13:11:56,920: INFO Response: User: admin : GET /all-groups/ 200
+2024-01-07 13:11:57,746: INFO Request: User: admin : GET /group-checkin/1
+2024-01-07 13:11:57,794: INFO Response: User: admin : GET /group-checkin/1 200
+2024-01-07 13:12:00,112: INFO Request: User: admin : POST /group-checkin/1
+2024-01-07 13:12:00,155: INFO Response: User: admin : POST /group-checkin/1 302
+2024-01-07 13:12:00,479: INFO Request: User: admin : GET /all-groups/
+2024-01-07 13:12:00,497: INFO Response: User: admin : GET /all-groups/ 200
+2024-01-07 13:12:02,774: INFO Request: User: Hayan : GET /group-checkin/1
+2024-01-07 13:12:02,788: INFO Response: User: Hayan : GET /group-checkin/1 302
+2024-01-07 13:12:02,984: INFO Request: User: Hayan : GET /all-groups/
+2024-01-07 13:12:03,003: INFO Response: User: Hayan : GET /all-groups/ 200
+2024-01-07 13:12:05,705: INFO Request: User: Hayan : GET /
+2024-01-07 13:12:05,731: INFO Response: User: Hayan : GET / 200
+2024-01-07 13:12:06,801: INFO Request: User: Hayan : GET /checkin/1
+2024-01-07 13:12:06,868: INFO Response: User: Hayan : GET /checkin/1 200
+2024-01-07 13:12:09,241: INFO Request: User: Hayan : POST /checkin/1
+2024-01-07 13:12:09,311: INFO Response: User: Hayan : POST /checkin/1 302
+2024-01-07 13:12:09,654: INFO Request: User: Hayan : GET /
+2024-01-07 13:12:09,678: INFO Response: User: Hayan : GET / 200
+2024-01-07 13:12:11,972: INFO Request: User: Hayan : GET /
+2024-01-07 13:12:12,002: INFO Response: User: Hayan : GET / 200
+2024-01-07 13:12:13,007: INFO Request: User: Hayan : GET /
+2024-01-07 13:12:13,029: INFO Response: User: Hayan : GET / 200
+2024-01-07 13:12:15,171: INFO Request: User: admin : GET /
+2024-01-07 13:12:15,192: INFO Response: User: admin : GET / 200
+2024-01-07 13:12:16,822: INFO Request: User: admin : GET /checkin/1
+2024-01-07 13:12:16,926: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 13:12:18,963: INFO Request: User: admin : POST /checkin/1
+2024-01-07 13:12:19,040: INFO Response: User: admin : POST /checkin/1 302
+2024-01-07 13:12:19,329: INFO Request: User: admin : GET /
+2024-01-07 13:12:19,364: INFO Response: User: admin : GET / 200
+2024-01-07 13:12:20,688: INFO Request: User: Hayan : GET /checkin/1
+2024-01-07 13:12:20,727: INFO Response: User: Hayan : GET /checkin/1 302
+2024-01-07 13:12:20,917: INFO Request: User: Hayan : GET /
+2024-01-07 13:12:20,951: INFO Response: User: Hayan : GET / 200
+2024-01-07 13:12:29,713: INFO Request: User: Hayan : GET /checkin/1
+2024-01-07 13:12:29,752: INFO Response: User: Hayan : GET /checkin/1 302
+2024-01-07 13:12:29,924: INFO Request: User: Hayan : GET /
+2024-01-07 13:12:29,958: INFO Response: User: Hayan : GET / 200
+2024-01-07 13:12:36,260: INFO Request: User: admin : GET /checkin/1
+2024-01-07 13:12:36,364: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 13:13:01,468: INFO D:\django projects\files_test\files_test\configurations.py changed, reloading.
+2024-01-07 19:44:49,629: INFO Watching for file changes with StatReloader
+2024-01-07 19:44:56,078: INFO Request: User: admin : GET /
+2024-01-07 19:44:57,088: INFO Response: User: admin : GET / 200
+2024-01-07 19:44:58,178: INFO Request: User: admin : GET /favicon.ico
+2024-01-07 19:44:58,178: INFO Response: User: admin : GET /favicon.ico 200
+2024-01-07 19:44:58,404: INFO Request: User: admin : GET /__reload__/events/
+2024-01-07 19:44:58,405: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-07 19:44:59,601: INFO Request: User: admin : GET /checkin/1
+2024-01-07 19:44:59,912: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 19:45:02,167: INFO Request: User: admin : GET /
+2024-01-07 19:45:02,189: INFO Response: User: admin : GET / 200
+2024-01-07 19:45:05,558: INFO Request: User: admin : GET /checkin/1
+2024-01-07 19:45:05,599: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 19:45:24,135: INFO Request: User: admin : POST /checkin/1
+2024-01-07 19:45:24,267: INFO Response: User: admin : POST /checkin/1 302
+2024-01-07 19:45:24,609: INFO Request: User: admin : GET /
+2024-01-07 19:45:24,630: INFO Response: User: admin : GET / 200
+2024-01-07 19:45:46,677: INFO Request: User: admin : GET /
+2024-01-07 19:45:46,702: INFO Response: User: admin : GET / 200
+2024-01-07 19:45:50,753: INFO Request: User: admin : GET /checkin/1
+2024-01-07 19:45:50,863: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 19:45:55,305: INFO Request: User: AnonymousUser : GET /
+2024-01-07 19:45:55,305: INFO Response: User: AnonymousUser : GET / 302
+2024-01-07 19:45:55,346: INFO Request: User: AnonymousUser : GET /login/
+2024-01-07 19:45:55,470: INFO Response: User: AnonymousUser : GET /login/ 200
+2024-01-07 19:45:56,497: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 19:45:56,501: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-07 19:46:05,134: INFO Request: User: AnonymousUser : GET /favicon.ico
+2024-01-07 19:46:05,134: INFO Response: User: AnonymousUser : GET /favicon.ico 200
+2024-01-07 19:46:05,153: INFO Request: User: AnonymousUser : GET /__reload__/events/
+2024-01-07 19:46:05,153: INFO Response: User: AnonymousUser : GET /__reload__/events/ 200
+2024-01-07 19:46:10,146: INFO Request: User: AnonymousUser : POST /login/
+2024-01-07 19:46:11,080: INFO Response: User: Hayan : POST /login/ 302
+2024-01-07 19:46:11,321: INFO Request: User: Hayan : GET /
+2024-01-07 19:46:11,346: INFO Response: User: Hayan : GET / 200
+2024-01-07 19:46:11,570: INFO Request: User: Hayan : GET /favicon.ico
+2024-01-07 19:46:11,570: INFO Response: User: Hayan : GET /favicon.ico 200
+2024-01-07 19:46:11,600: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-07 19:46:11,601: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-07 19:46:13,676: INFO Request: User: admin : GET /
+2024-01-07 19:46:13,679: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 19:46:13,685: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 19:46:13,705: INFO Response: User: admin : GET / 200
+2024-01-07 19:46:14,509: INFO Request: User: admin : GET /checkin/1
+2024-01-07 19:46:14,567: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 19:46:16,155: INFO Request: User: Hayan : GET /
+2024-01-07 19:46:16,175: INFO Response: User: Hayan : GET / 200
+2024-01-07 19:46:16,392: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-07 19:46:16,392: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-07 19:46:16,788: INFO Request: User: Hayan : GET /checkin/1
+2024-01-07 19:46:16,799: INFO Response: User: Hayan : GET /checkin/1 302
+2024-01-07 19:46:17,017: INFO Request: User: Hayan : GET /
+2024-01-07 19:46:17,037: INFO Response: User: Hayan : GET / 200
+2024-01-07 19:46:17,186: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-07 19:46:17,187: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-07 19:46:18,427: INFO Request: User: Hayan : GET /checkin/1
+2024-01-07 19:46:18,438: INFO Response: User: Hayan : GET /checkin/1 302
+2024-01-07 19:46:18,539: INFO Request: User: Hayan : GET /
+2024-01-07 19:46:18,560: INFO Response: User: Hayan : GET / 200
+2024-01-07 19:46:18,716: INFO Request: User: Hayan : GET /__reload__/events/
+2024-01-07 19:46:18,717: INFO Response: User: Hayan : GET /__reload__/events/ 200
+2024-01-07 19:46:20,310: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 19:46:20,315: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-07 19:46:24,025: INFO Request: User: admin : GET /
+2024-01-07 19:46:24,028: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 19:46:24,031: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 19:46:24,048: INFO Response: User: admin : GET / 200
+2024-01-07 19:46:26,050: INFO Request: User: admin : GET /
+2024-01-07 19:46:26,071: INFO Response: User: admin : GET / 200
+2024-01-07 19:46:27,682: INFO Request: User: admin : GET /
+2024-01-07 19:46:27,702: INFO Response: User: admin : GET / 200
+2024-01-07 19:46:28,169: INFO Request: User: admin : GET /
+2024-01-07 19:46:28,189: INFO Response: User: admin : GET / 200
+2024-01-07 19:46:28,532: INFO Request: User: admin : GET /
+2024-01-07 19:46:28,554: INFO Response: User: admin : GET / 200
+2024-01-07 19:46:28,853: INFO Request: User: admin : GET /
+2024-01-07 19:46:28,875: INFO Response: User: admin : GET / 200
+2024-01-07 19:46:29,190: INFO Request: User: admin : GET /
+2024-01-07 19:46:29,213: INFO Response: User: admin : GET / 200
+2024-01-07 19:46:34,044: INFO Request: User: admin : GET /
+2024-01-07 19:46:34,062: INFO Response: User: admin : GET / 200
+2024-01-07 19:46:35,083: INFO Request: User: admin : GET /
+2024-01-07 19:46:35,109: INFO Response: User: admin : GET / 200
+2024-01-07 19:52:20,298: INFO Request: User: admin : GET /
+2024-01-07 19:52:20,318: INFO Response: User: admin : GET / 200
+2024-01-07 19:52:23,119: INFO Request: User: admin : GET /checkin/1
+2024-01-07 19:52:23,215: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 19:52:28,502: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 19:52:28,506: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-07 19:52:30,341: INFO Request: User: admin : GET /
+2024-01-07 19:52:30,344: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 19:52:30,346: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 19:52:30,362: INFO Response: User: admin : GET / 200
+2024-01-07 19:52:31,614: INFO Request: User: admin : GET /
+2024-01-07 19:52:31,635: INFO Response: User: admin : GET / 200
+2024-01-07 19:52:32,676: INFO Request: User: admin : GET /
+2024-01-07 19:52:32,698: INFO Response: User: admin : GET / 200
+2024-01-07 19:52:34,447: INFO Request: User: admin : GET /checkin/1
+2024-01-07 19:52:34,473: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 19:52:39,696: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 19:52:39,700: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-07 19:52:40,912: INFO Request: User: admin : GET /checkin/1
+2024-01-07 19:52:40,970: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 19:52:41,188: INFO Request: User: admin : GET /
+2024-01-07 19:52:41,209: INFO Response: User: admin : GET / 200
+2024-01-07 19:52:42,847: INFO Request: User: admin : GET /
+2024-01-07 19:52:42,869: INFO Response: User: admin : GET / 200
+2024-01-07 19:52:44,550: INFO Request: User: admin : GET /
+2024-01-07 19:52:44,570: INFO Response: User: admin : GET / 200
+2024-01-07 19:52:45,481: INFO Request: User: admin : GET /checkin/1
+2024-01-07 19:52:45,509: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 19:52:46,161: INFO Request: User: admin : POST /checkin/1
+2024-01-07 19:52:46,215: INFO Response: User: admin : POST /checkin/1 302
+2024-01-07 19:52:46,377: INFO Request: User: admin : GET /
+2024-01-07 19:52:46,400: INFO Response: User: admin : GET / 200
+2024-01-07 19:52:47,086: INFO Request: User: admin : GET /
+2024-01-07 19:52:47,107: INFO Response: User: admin : GET / 200
+2024-01-07 19:52:48,279: INFO Request: User: admin : GET /
+2024-01-07 19:52:48,298: INFO Response: User: admin : GET / 200
+2024-01-07 19:52:54,976: INFO Request: User: admin : GET /checkin/1
+2024-01-07 19:52:55,046: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 19:52:59,488: INFO Request: User: admin : GET /checkin/1
+2024-01-07 19:52:59,519: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 19:53:04,737: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 19:53:04,742: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-07 19:53:21,736: INFO Request: User: admin : GET /
+2024-01-07 19:53:21,743: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 19:53:21,745: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 19:53:21,761: INFO Response: User: admin : GET / 200
+2024-01-07 19:53:22,835: INFO Request: User: admin : GET /checkin/1
+2024-01-07 19:53:22,899: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 19:53:28,202: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 19:53:28,206: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-07 19:53:31,527: INFO Request: User: admin : GET /
+2024-01-07 19:53:31,533: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 19:53:31,536: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 19:53:31,553: INFO Response: User: admin : GET / 200
+2024-01-07 19:53:39,329: INFO Request: User: admin : GET /
+2024-01-07 19:53:39,407: INFO Response: User: admin : GET / 200
+2024-01-07 19:55:09,602: INFO D:\django projects\files_test\files\views.py changed, reloading.
+2024-01-07 19:55:13,940: INFO Watching for file changes with StatReloader
+2024-01-07 19:55:14,863: INFO Request: User: admin : GET /__reload__/events/
+2024-01-07 19:55:14,864: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-07 19:55:15,154: INFO Request: User: admin : GET /
+2024-01-07 19:55:15,209: INFO Response: User: admin : GET / 200
+2024-01-07 19:55:23,786: INFO Request: User: admin : GET /checkin/1
+2024-01-07 19:55:23,974: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 19:55:29,764: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 19:55:29,842: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    return JsonResponse({'is_free': file.lockfile})
+                                    ^^^^^^^^^^^^^
+AttributeError: 'File' object has no attribute 'lockfile'. Did you mean: 'lock_file'?
+2024-01-07 19:55:29,845: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 19:55:30,941: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 19:55:30,945: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 19:55:35,045: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 19:55:35,076: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    return JsonResponse({'is_free': file.lockfile})
+                                    ^^^^^^^^^^^^^
+AttributeError: 'File' object has no attribute 'lockfile'. Did you mean: 'lock_file'?
+2024-01-07 19:55:35,079: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 19:55:36,255: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 19:55:36,258: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 19:55:40,063: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 19:55:40,091: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    return JsonResponse({'is_free': file.lockfile})
+                                    ^^^^^^^^^^^^^
+AttributeError: 'File' object has no attribute 'lockfile'. Did you mean: 'lock_file'?
+2024-01-07 19:55:40,094: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 19:55:40,407: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 19:55:40,410: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 19:55:41,905: INFO Request: User: admin : POST /checkin/1
+2024-01-07 19:55:41,995: INFO Response: User: admin : POST /checkin/1 302
+2024-01-07 19:55:42,213: INFO Request: User: admin : GET /
+2024-01-07 19:55:42,235: INFO Response: User: admin : GET / 200
+2024-01-07 19:56:07,451: INFO D:\django projects\files_test\files\views.py changed, reloading.
+2024-01-07 19:56:09,007: INFO Watching for file changes with StatReloader
+2024-01-07 19:56:09,921: INFO Request: User: admin : GET /__reload__/events/
+2024-01-07 19:56:09,921: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-07 19:56:10,057: INFO Request: User: admin : GET /checkin/1
+2024-01-07 19:56:10,068: INFO Request: User: admin : GET /
+2024-01-07 19:56:10,107: INFO Response: User: admin : GET / 200
+2024-01-07 19:56:10,170: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 19:56:11,274: INFO Request: User: admin : GET /checkin/1
+2024-01-07 19:56:11,301: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 19:56:13,847: INFO Request: User: admin : GET /
+2024-01-07 19:56:13,871: INFO Response: User: admin : GET / 200
+2024-01-07 19:56:14,577: INFO Request: User: admin : GET /checkin/1
+2024-01-07 19:56:14,606: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 19:56:20,333: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 19:56:20,433: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    return JsonResponse({'is_free': file.filelock})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\http\response.py", line 731, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\json\encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\json\encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\serializers\json.py", line 106, in default
+    return super().default(o)
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python312\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type FileLock is not JSON serializable
+2024-01-07 19:56:20,438: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 19:56:21,578: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 19:56:21,580: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 19:56:25,674: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 19:56:25,732: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    return JsonResponse({'is_free': file.filelock})
+                                    ^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\fields\related_descriptors.py", line 492, in __get__
+    raise self.RelatedObjectDoesNotExist(
+files.models.File.filelock.RelatedObjectDoesNotExist: File has no filelock.
+2024-01-07 19:56:25,737: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 19:56:26,842: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 19:56:26,844: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 19:56:30,979: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 19:56:31,011: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    return JsonResponse({'is_free': file.filelock})
+                                    ^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\fields\related_descriptors.py", line 492, in __get__
+    raise self.RelatedObjectDoesNotExist(
+files.models.File.filelock.RelatedObjectDoesNotExist: File has no filelock.
+2024-01-07 19:56:31,015: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 19:56:32,135: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 19:56:32,138: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 19:56:36,246: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 19:56:36,281: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    return JsonResponse({'is_free': file.filelock})
+                                    ^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\fields\related_descriptors.py", line 492, in __get__
+    raise self.RelatedObjectDoesNotExist(
+files.models.File.filelock.RelatedObjectDoesNotExist: File has no filelock.
+2024-01-07 19:56:36,285: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 19:56:37,379: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 19:56:37,381: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 19:56:41,464: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 19:56:41,497: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    return JsonResponse({'is_free': file.filelock})
+                                    ^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\fields\related_descriptors.py", line 492, in __get__
+    raise self.RelatedObjectDoesNotExist(
+files.models.File.filelock.RelatedObjectDoesNotExist: File has no filelock.
+2024-01-07 19:56:41,500: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 19:56:42,601: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 19:56:42,605: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 19:56:44,338: INFO D:\django projects\files_test\files\views.py changed, reloading.
+2024-01-07 19:56:45,908: INFO Watching for file changes with StatReloader
+2024-01-07 19:56:46,707: INFO Request: User: admin : GET /__reload__/events/
+2024-01-07 19:56:46,708: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-07 19:56:46,709: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 19:56:46,758: INFO Request: User: admin : POST /checkin/1
+2024-01-07 19:56:46,816: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    return JsonResponse({'is_free': file.filelock.exists()})
+                                    ^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\fields\related_descriptors.py", line 492, in __get__
+    raise self.RelatedObjectDoesNotExist(
+files.models.File.filelock.RelatedObjectDoesNotExist: File has no filelock.
+2024-01-07 19:56:46,832: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 19:56:46,931: INFO Response: User: admin : POST /checkin/1 302
+2024-01-07 19:56:47,053: INFO Request: User: admin : GET /checkin/1
+2024-01-07 19:56:47,164: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 19:56:49,204: INFO Request: User: admin : POST /checkin/1
+2024-01-07 19:56:49,250: INFO Response: User: admin : POST /checkin/1 302
+2024-01-07 19:56:49,513: INFO Request: User: admin : GET /
+2024-01-07 19:56:49,536: INFO Response: User: admin : GET / 200
+2024-01-07 19:56:50,518: INFO Request: User: admin : GET /checkin/1
+2024-01-07 19:56:50,575: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 19:56:56,651: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 19:56:56,688: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    return JsonResponse({'is_free': file.filelock.exists()})
+                                    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'FileLock' object has no attribute 'exists'
+2024-01-07 19:56:56,691: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 19:56:57,776: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 19:56:57,778: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 19:57:01,910: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 19:57:01,974: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    return JsonResponse({'is_free': file.filelock.exists()})
+                                    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'FileLock' object has no attribute 'exists'
+2024-01-07 19:57:01,976: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 19:57:03,226: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 19:57:03,230: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 19:57:07,124: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 19:57:07,161: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    return JsonResponse({'is_free': file.filelock.exists()})
+                                    ^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\fields\related_descriptors.py", line 492, in __get__
+    raise self.RelatedObjectDoesNotExist(
+files.models.File.filelock.RelatedObjectDoesNotExist: File has no filelock.
+2024-01-07 19:57:07,164: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 19:57:08,145: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 19:57:08,147: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 19:57:12,673: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 19:57:12,706: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    return JsonResponse({'is_free': file.filelock.exists()})
+                                    ^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\fields\related_descriptors.py", line 492, in __get__
+    raise self.RelatedObjectDoesNotExist(
+files.models.File.filelock.RelatedObjectDoesNotExist: File has no filelock.
+2024-01-07 19:57:12,711: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 19:57:13,928: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 19:57:13,932: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 19:57:17,876: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 19:57:17,911: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    return JsonResponse({'is_free': file.filelock.exists()})
+                                    ^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\fields\related_descriptors.py", line 492, in __get__
+    raise self.RelatedObjectDoesNotExist(
+files.models.File.filelock.RelatedObjectDoesNotExist: File has no filelock.
+2024-01-07 19:57:17,915: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 19:57:19,024: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 19:57:19,027: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 19:57:23,128: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 19:57:23,160: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    return JsonResponse({'is_free': file.filelock.exists()})
+                                    ^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\fields\related_descriptors.py", line 492, in __get__
+    raise self.RelatedObjectDoesNotExist(
+files.models.File.filelock.RelatedObjectDoesNotExist: File has no filelock.
+2024-01-07 19:57:23,164: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 19:57:24,278: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 19:57:24,282: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 19:57:26,968: INFO Request: User: admin : POST /checkin/1
+2024-01-07 19:57:27,045: INFO Response: User: admin : POST /checkin/1 302
+2024-01-07 19:57:27,269: INFO Request: User: admin : GET /
+2024-01-07 19:57:27,290: INFO Response: User: admin : GET / 200
+2024-01-07 19:57:28,675: INFO Request: User: admin : GET /
+2024-01-07 19:57:28,697: INFO Response: User: admin : GET / 200
+2024-01-07 19:57:57,939: INFO D:\django projects\files_test\files\views.py changed, reloading.
+2024-01-07 19:57:59,619: INFO Watching for file changes with StatReloader
+2024-01-07 19:58:00,564: INFO Request: User: admin : GET /__reload__/events/
+2024-01-07 19:58:00,564: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-07 19:58:00,742: INFO Request: User: admin : GET /
+2024-01-07 19:58:00,775: INFO Response: User: admin : GET / 200
+2024-01-07 19:58:01,143: INFO Request: User: admin : GET /checkin/1
+2024-01-07 19:58:01,224: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 19:58:06,996: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 19:58:07,028: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    is_free = file.filelock.exists()
+              ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'FileLock' object has no attribute 'exists'
+2024-01-07 19:58:07,031: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 19:58:08,143: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 19:58:08,146: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 19:58:12,248: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 19:58:12,280: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    is_free = file.filelock.exists()
+              ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'FileLock' object has no attribute 'exists'
+2024-01-07 19:58:12,283: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 19:58:13,254: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 19:58:13,257: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 19:58:17,486: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 19:58:17,518: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    is_free = file.filelock.exists()
+              ^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\fields\related_descriptors.py", line 492, in __get__
+    raise self.RelatedObjectDoesNotExist(
+files.models.File.filelock.RelatedObjectDoesNotExist: File has no filelock.
+2024-01-07 19:58:17,523: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 19:58:18,503: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 19:58:18,506: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 19:58:22,602: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 19:58:22,636: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    is_free = file.filelock.exists()
+              ^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\fields\related_descriptors.py", line 492, in __get__
+    raise self.RelatedObjectDoesNotExist(
+files.models.File.filelock.RelatedObjectDoesNotExist: File has no filelock.
+2024-01-07 19:58:22,640: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 19:58:23,734: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 19:58:23,737: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 19:58:31,426: INFO Watching for file changes with StatReloader
+2024-01-07 19:58:32,112: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 19:58:32,187: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    is_free = file.filelock.exists()
+              ^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\fields\related_descriptors.py", line 492, in __get__
+    raise self.RelatedObjectDoesNotExist(
+files.models.File.filelock.RelatedObjectDoesNotExist: File has no filelock.
+2024-01-07 19:58:32,191: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 19:58:32,202: INFO Request: User: admin : GET /__reload__/events/
+2024-01-07 19:58:32,203: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-07 19:58:32,349: INFO Request: User: admin : GET /checkin/1
+2024-01-07 19:58:32,423: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 19:58:37,734: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 19:58:37,767: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    is_free = file.filelock.exists()
+              ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'FileLock' object has no attribute 'exists'
+2024-01-07 19:58:37,770: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 19:58:38,881: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 19:58:38,884: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 19:58:42,987: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 19:58:43,017: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    is_free = file.filelock.exists()
+              ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'FileLock' object has no attribute 'exists'
+2024-01-07 19:58:43,019: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 19:58:44,129: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 19:58:44,132: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 19:58:48,235: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 19:58:48,273: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    is_free = file.filelock.exists()
+              ^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\fields\related_descriptors.py", line 492, in __get__
+    raise self.RelatedObjectDoesNotExist(
+files.models.File.filelock.RelatedObjectDoesNotExist: File has no filelock.
+2024-01-07 19:58:48,279: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 19:58:49,394: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 19:58:49,398: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 19:58:53,481: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 19:58:53,548: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    is_free = file.filelock.exists()
+              ^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\fields\related_descriptors.py", line 492, in __get__
+    raise self.RelatedObjectDoesNotExist(
+files.models.File.filelock.RelatedObjectDoesNotExist: File has no filelock.
+2024-01-07 19:58:53,552: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 19:58:54,780: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 19:58:54,784: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 19:58:58,687: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 19:58:58,721: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    is_free = file.filelock.exists()
+              ^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\fields\related_descriptors.py", line 492, in __get__
+    raise self.RelatedObjectDoesNotExist(
+files.models.File.filelock.RelatedObjectDoesNotExist: File has no filelock.
+2024-01-07 19:58:58,726: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 19:58:59,812: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 19:58:59,817: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 19:59:03,953: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 19:59:03,985: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    is_free = file.filelock.exists()
+              ^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\fields\related_descriptors.py", line 492, in __get__
+    raise self.RelatedObjectDoesNotExist(
+files.models.File.filelock.RelatedObjectDoesNotExist: File has no filelock.
+2024-01-07 19:59:03,990: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 19:59:05,088: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 19:59:05,093: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 19:59:09,186: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 19:59:09,218: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    is_free = file.filelock.exists()
+              ^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\fields\related_descriptors.py", line 492, in __get__
+    raise self.RelatedObjectDoesNotExist(
+files.models.File.filelock.RelatedObjectDoesNotExist: File has no filelock.
+2024-01-07 19:59:09,222: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 19:59:10,334: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 19:59:10,337: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 19:59:14,428: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 19:59:14,461: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    is_free = file.filelock.exists()
+              ^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\fields\related_descriptors.py", line 492, in __get__
+    raise self.RelatedObjectDoesNotExist(
+files.models.File.filelock.RelatedObjectDoesNotExist: File has no filelock.
+2024-01-07 19:59:14,465: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 19:59:15,424: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 19:59:15,427: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 19:59:19,656: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 19:59:19,689: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    is_free = file.filelock.exists()
+              ^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\fields\related_descriptors.py", line 492, in __get__
+    raise self.RelatedObjectDoesNotExist(
+files.models.File.filelock.RelatedObjectDoesNotExist: File has no filelock.
+2024-01-07 19:59:19,694: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 19:59:20,805: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 19:59:20,809: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 19:59:25,030: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 19:59:25,069: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    is_free = file.filelock.exists()
+              ^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\fields\related_descriptors.py", line 492, in __get__
+    raise self.RelatedObjectDoesNotExist(
+files.models.File.filelock.RelatedObjectDoesNotExist: File has no filelock.
+2024-01-07 19:59:25,072: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 19:59:26,308: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 19:59:26,314: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 19:59:30,196: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 19:59:30,234: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    is_free = file.filelock.exists()
+              ^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\fields\related_descriptors.py", line 492, in __get__
+    raise self.RelatedObjectDoesNotExist(
+files.models.File.filelock.RelatedObjectDoesNotExist: File has no filelock.
+2024-01-07 19:59:30,239: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 19:59:31,327: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 19:59:31,330: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 19:59:35,419: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 19:59:35,474: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    is_free = file.filelock.exists()
+              ^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\fields\related_descriptors.py", line 492, in __get__
+    raise self.RelatedObjectDoesNotExist(
+files.models.File.filelock.RelatedObjectDoesNotExist: File has no filelock.
+2024-01-07 19:59:35,480: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 19:59:36,749: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 19:59:36,753: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 19:59:40,682: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 19:59:40,754: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    is_free = file.filelock.exists()
+              ^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\fields\related_descriptors.py", line 492, in __get__
+    raise self.RelatedObjectDoesNotExist(
+files.models.File.filelock.RelatedObjectDoesNotExist: File has no filelock.
+2024-01-07 19:59:40,759: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 19:59:41,883: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 19:59:41,887: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 19:59:45,994: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 19:59:46,026: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    is_free = file.filelock.exists()
+              ^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\fields\related_descriptors.py", line 492, in __get__
+    raise self.RelatedObjectDoesNotExist(
+files.models.File.filelock.RelatedObjectDoesNotExist: File has no filelock.
+2024-01-07 19:59:46,031: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 19:59:47,130: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 19:59:47,133: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 19:59:51,233: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 19:59:51,267: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    is_free = file.filelock.exists()
+              ^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\fields\related_descriptors.py", line 492, in __get__
+    raise self.RelatedObjectDoesNotExist(
+files.models.File.filelock.RelatedObjectDoesNotExist: File has no filelock.
+2024-01-07 19:59:51,272: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 19:59:52,384: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 19:59:52,389: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 19:59:56,460: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 19:59:56,493: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    is_free = file.filelock.exists()
+              ^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\fields\related_descriptors.py", line 492, in __get__
+    raise self.RelatedObjectDoesNotExist(
+files.models.File.filelock.RelatedObjectDoesNotExist: File has no filelock.
+2024-01-07 19:59:56,497: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 19:59:57,606: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 19:59:57,608: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:00:01,623: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:00:01,655: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    is_free = file.filelock.exists()
+              ^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\fields\related_descriptors.py", line 492, in __get__
+    raise self.RelatedObjectDoesNotExist(
+files.models.File.filelock.RelatedObjectDoesNotExist: File has no filelock.
+2024-01-07 20:00:01,661: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 20:00:02,763: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:00:02,770: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:00:06,912: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:00:06,955: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    is_free = file.filelock.exists()
+              ^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\fields\related_descriptors.py", line 492, in __get__
+    raise self.RelatedObjectDoesNotExist(
+files.models.File.filelock.RelatedObjectDoesNotExist: File has no filelock.
+2024-01-07 20:00:06,959: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 20:00:08,059: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:00:08,062: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:00:12,173: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:00:12,205: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    is_free = file.filelock.exists()
+              ^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\fields\related_descriptors.py", line 492, in __get__
+    raise self.RelatedObjectDoesNotExist(
+files.models.File.filelock.RelatedObjectDoesNotExist: File has no filelock.
+2024-01-07 20:00:12,210: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 20:00:13,319: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:00:13,322: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:00:17,420: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:00:17,455: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    is_free = file.filelock.exists()
+              ^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\fields\related_descriptors.py", line 492, in __get__
+    raise self.RelatedObjectDoesNotExist(
+files.models.File.filelock.RelatedObjectDoesNotExist: File has no filelock.
+2024-01-07 20:00:17,459: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 20:00:18,578: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:00:18,582: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:00:22,842: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:00:22,897: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    is_free = file.filelock.exists()
+              ^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\fields\related_descriptors.py", line 492, in __get__
+    raise self.RelatedObjectDoesNotExist(
+files.models.File.filelock.RelatedObjectDoesNotExist: File has no filelock.
+2024-01-07 20:00:22,902: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 20:00:23,754: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:00:23,757: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:00:27,848: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:00:27,892: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    is_free = file.filelock.exists()
+              ^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\fields\related_descriptors.py", line 492, in __get__
+    raise self.RelatedObjectDoesNotExist(
+files.models.File.filelock.RelatedObjectDoesNotExist: File has no filelock.
+2024-01-07 20:00:27,896: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 20:00:28,993: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:00:28,998: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:00:33,033: INFO D:\django projects\files_test\files\services.py changed, reloading.
+2024-01-07 20:00:34,785: INFO Watching for file changes with StatReloader
+2024-01-07 20:00:35,656: INFO Request: User: admin : GET /__reload__/events/
+2024-01-07 20:00:35,656: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-07 20:00:35,657: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:00:35,754: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    is_free = file.filelock.exists()
+              ^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\fields\related_descriptors.py", line 492, in __get__
+    raise self.RelatedObjectDoesNotExist(
+files.models.File.filelock.RelatedObjectDoesNotExist: File has no filelock.
+2024-01-07 20:00:35,764: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 20:00:35,847: INFO Request: User: admin : GET /checkin/1
+2024-01-07 20:00:35,921: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 20:00:41,209: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:00:41,245: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    is_free = file.filelock.exists()
+              ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'FileLock' object has no attribute 'exists'
+2024-01-07 20:00:41,248: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 20:00:42,353: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:00:42,355: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:00:46,442: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:00:46,483: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    is_free = file.filelock.exists()
+              ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'FileLock' object has no attribute 'exists'
+2024-01-07 20:00:46,486: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 20:00:47,585: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:00:47,588: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:00:51,677: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:00:51,712: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    is_free = file.filelock.exists()
+              ^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\fields\related_descriptors.py", line 492, in __get__
+    raise self.RelatedObjectDoesNotExist(
+files.models.File.filelock.RelatedObjectDoesNotExist: File has no filelock.
+2024-01-07 20:00:51,717: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 20:00:52,819: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:00:52,821: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:00:56,961: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:00:57,071: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    is_free = file.filelock.exists()
+              ^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\fields\related_descriptors.py", line 492, in __get__
+    raise self.RelatedObjectDoesNotExist(
+files.models.File.filelock.RelatedObjectDoesNotExist: File has no filelock.
+2024-01-07 20:00:57,076: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 20:00:58,306: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:00:58,308: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:01:02,218: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:01:02,257: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    is_free = file.filelock.exists()
+              ^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\fields\related_descriptors.py", line 492, in __get__
+    raise self.RelatedObjectDoesNotExist(
+files.models.File.filelock.RelatedObjectDoesNotExist: File has no filelock.
+2024-01-07 20:01:02,261: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 20:01:03,379: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:01:03,382: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:01:07,387: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:01:07,421: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    is_free = file.filelock.exists()
+              ^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\fields\related_descriptors.py", line 492, in __get__
+    raise self.RelatedObjectDoesNotExist(
+files.models.File.filelock.RelatedObjectDoesNotExist: File has no filelock.
+2024-01-07 20:01:07,426: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 20:01:08,550: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:01:08,552: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:01:13,344: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:01:13,387: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    is_free = file.filelock.exists()
+              ^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\fields\related_descriptors.py", line 492, in __get__
+    raise self.RelatedObjectDoesNotExist(
+files.models.File.filelock.RelatedObjectDoesNotExist: File has no filelock.
+2024-01-07 20:01:13,392: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 20:01:14,489: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:01:14,491: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:01:18,609: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:01:18,644: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    is_free = file.filelock.exists()
+              ^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\fields\related_descriptors.py", line 492, in __get__
+    raise self.RelatedObjectDoesNotExist(
+files.models.File.filelock.RelatedObjectDoesNotExist: File has no filelock.
+2024-01-07 20:01:18,647: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 20:01:19,774: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:01:19,777: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:01:23,878: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:01:23,931: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    is_free = file.filelock.exists()
+              ^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\fields\related_descriptors.py", line 492, in __get__
+    raise self.RelatedObjectDoesNotExist(
+files.models.File.filelock.RelatedObjectDoesNotExist: File has no filelock.
+2024-01-07 20:01:23,936: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 20:01:25,048: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:01:25,053: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:01:29,169: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:01:29,210: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    is_free = file.filelock.exists()
+              ^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\fields\related_descriptors.py", line 492, in __get__
+    raise self.RelatedObjectDoesNotExist(
+files.models.File.filelock.RelatedObjectDoesNotExist: File has no filelock.
+2024-01-07 20:01:29,213: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 20:01:30,333: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:01:30,340: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:01:34,510: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:01:34,566: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    is_free = file.filelock.exists()
+              ^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\db\models\fields\related_descriptors.py", line 492, in __get__
+    raise self.RelatedObjectDoesNotExist(
+files.models.File.filelock.RelatedObjectDoesNotExist: File has no filelock.
+2024-01-07 20:01:34,570: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 20:01:34,982: INFO D:\django projects\files_test\files\services.py changed, reloading.
+2024-01-07 20:01:36,420: INFO Watching for file changes with StatReloader
+2024-01-07 20:01:37,059: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:01:37,060: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:01:37,308: INFO Request: User: admin : GET /__reload__/events/
+2024-01-07 20:01:37,308: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-07 20:01:37,456: INFO Request: User: admin : GET /checkin/1
+2024-01-07 20:01:37,539: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 20:01:42,869: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:01:42,909: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    is_free = file.filelock.exists()
+              ^^^^^^^^^^^^^
+AttributeError: 'bool' object has no attribute 'filelock'
+2024-01-07 20:01:42,913: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 20:01:44,025: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:01:44,029: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:01:48,142: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:01:48,185: ERROR Internal Server Error: /check-file-status/1
+Traceback (most recent call last):
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Abo39am\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django projects\files_test\files\views.py", line 57, in check_file_status
+    is_free = file.filelock.exists()
+              ^^^^^^^^^^^^^
+AttributeError: 'bool' object has no attribute 'filelock'
+2024-01-07 20:01:48,189: INFO Response: User: admin : GET /check-file-status/1 500
+2024-01-07 20:01:49,135: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:01:49,138: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:01:49,283: INFO D:\django projects\files_test\files\views.py changed, reloading.
+2024-01-07 20:01:50,657: INFO Watching for file changes with StatReloader
+2024-01-07 20:01:51,559: INFO Request: User: admin : GET /__reload__/events/
+2024-01-07 20:01:51,560: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-07 20:01:51,711: INFO Request: User: admin : GET /checkin/1
+2024-01-07 20:01:51,754: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 20:01:56,777: INFO D:\django projects\files_test\files\views.py changed, reloading.
+2024-01-07 20:01:58,198: INFO Watching for file changes with StatReloader
+2024-01-07 20:01:59,085: INFO Request: User: admin : GET /__reload__/events/
+2024-01-07 20:01:59,086: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-07 20:01:59,087: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:01:59,114: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-07 20:01:59,357: INFO Request: User: admin : GET /checkin/1
+2024-01-07 20:01:59,456: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 20:01:59,841: INFO Request: User: admin : GET /
+2024-01-07 20:01:59,865: INFO Response: User: admin : GET / 200
+2024-01-07 20:02:02,261: INFO Request: User: admin : GET /checkin/1
+2024-01-07 20:02:02,291: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 20:02:02,807: INFO Request: User: admin : POST /checkin/1
+2024-01-07 20:02:02,864: INFO Response: User: admin : POST /checkin/1 302
+2024-01-07 20:02:03,063: INFO Request: User: admin : GET /
+2024-01-07 20:02:03,082: INFO Response: User: admin : GET / 200
+2024-01-07 20:02:05,575: INFO Request: User: admin : GET /checkin/1
+2024-01-07 20:02:05,639: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 20:02:11,597: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:02:11,605: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-07 20:02:12,608: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:02:12,610: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:02:16,716: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:02:16,725: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-07 20:02:17,823: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:02:17,825: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:02:22,292: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:02:22,301: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-07 20:02:24,267: INFO Request: User: admin : GET /
+2024-01-07 20:02:24,272: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:02:24,276: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:02:24,292: INFO Response: User: admin : GET / 200
+2024-01-07 20:02:31,729: INFO D:\django projects\files_test\files\views.py changed, reloading.
+2024-01-07 20:02:33,131: INFO Watching for file changes with StatReloader
+2024-01-07 20:02:33,826: INFO Request: User: admin : GET /__reload__/events/
+2024-01-07 20:02:33,826: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-07 20:02:33,953: INFO Request: User: admin : GET /
+2024-01-07 20:02:33,981: INFO Response: User: admin : GET / 200
+2024-01-07 20:07:44,409: INFO Request: User: admin : GET /
+2024-01-07 20:07:44,678: INFO Response: User: admin : GET / 200
+2024-01-07 20:07:46,987: INFO Request: User: admin : GET /checkin/1
+2024-01-07 20:07:47,074: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 20:07:52,896: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:07:52,903: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-07 20:07:53,221: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:07:53,223: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:07:57,939: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:07:57,947: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-07 20:07:58,252: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:07:58,255: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:08:03,140: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:08:03,147: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-07 20:08:04,445: INFO Request: User: admin : GET /
+2024-01-07 20:08:04,464: INFO Response: User: admin : GET / 200
+2024-01-07 20:08:04,635: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:08:04,638: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:08:05,349: INFO Request: User: admin : GET /checkin/1
+2024-01-07 20:08:05,410: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 20:08:10,705: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:08:10,714: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-07 20:08:11,806: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:08:11,808: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:08:15,726: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:08:15,734: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-07 20:08:16,854: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:08:16,857: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:08:20,706: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:08:20,715: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-07 20:08:21,838: INFO Request: User: admin : GET /
+2024-01-07 20:08:21,840: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:08:21,844: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:08:21,858: INFO Response: User: admin : GET / 200
+2024-01-07 20:10:02,169: INFO Request: User: admin : GET /
+2024-01-07 20:10:02,188: INFO Response: User: admin : GET / 200
+2024-01-07 20:10:18,260: INFO Request: User: admin : GET /
+2024-01-07 20:10:18,282: INFO Response: User: admin : GET / 200
+2024-01-07 20:10:20,637: INFO Request: User: admin : GET /checkin/1
+2024-01-07 20:10:20,712: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 20:10:25,994: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:10:26,002: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-07 20:10:26,309: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:10:26,312: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:10:29,803: INFO Request: User: admin : GET /checkin/1
+2024-01-07 20:10:29,829: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 20:10:35,383: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:10:35,391: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-07 20:10:35,712: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:10:35,719: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:10:40,427: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:10:40,435: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-07 20:11:32,319: INFO Request: User: admin : GET /checkin/1
+2024-01-07 20:11:32,396: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 20:11:32,711: INFO Request: User: admin : GET /
+2024-01-07 20:11:32,740: INFO Response: User: admin : GET / 200
+2024-01-07 20:11:34,964: INFO Request: User: admin : GET /checkin/1
+2024-01-07 20:11:34,993: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 20:11:35,499: INFO Request: User: admin : POST /checkin/1
+2024-01-07 20:11:35,554: INFO Response: User: admin : POST /checkin/1 302
+2024-01-07 20:11:35,694: INFO Request: User: admin : GET /
+2024-01-07 20:11:35,712: INFO Response: User: admin : GET / 200
+2024-01-07 20:11:36,350: INFO Request: User: admin : GET /checkin/1
+2024-01-07 20:11:36,409: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 20:11:41,856: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:11:41,864: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-07 20:11:42,975: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:11:42,978: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:11:47,084: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:11:47,091: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-07 20:11:48,171: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:11:48,175: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:11:52,112: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:11:52,120: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-07 20:11:59,778: INFO Request: User: admin : GET /
+2024-01-07 20:11:59,787: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:11:59,793: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:11:59,801: INFO Response: User: admin : GET / 200
+2024-01-07 20:12:09,034: INFO Request: User: admin : GET /
+2024-01-07 20:12:09,060: INFO Response: User: admin : GET / 200
+2024-01-07 20:14:36,110: INFO Request: User: admin : GET /
+2024-01-07 20:14:36,140: INFO Response: User: admin : GET / 200
+2024-01-07 20:14:41,526: INFO Request: User: admin : GET /checkin/1
+2024-01-07 20:14:41,604: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 20:14:46,839: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:14:46,845: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-07 20:14:47,155: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:14:47,158: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:14:52,332: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:14:52,340: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-07 20:14:53,439: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:14:53,441: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:14:54,485: INFO Request: User: admin : GET /checkin/1
+2024-01-07 20:14:54,535: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 20:14:59,957: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:14:59,964: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-07 20:15:07,306: INFO Request: User: admin : GET /
+2024-01-07 20:15:07,315: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:15:07,318: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:15:07,335: INFO Response: User: admin : GET / 200
+2024-01-07 20:16:59,077: INFO Request: User: admin : GET /
+2024-01-07 20:16:59,118: INFO Response: User: admin : GET / 200
+2024-01-07 20:17:03,984: INFO Request: User: admin : GET /checkin/1
+2024-01-07 20:17:04,068: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 20:17:09,818: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:17:09,825: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-07 20:17:10,815: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:17:10,818: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:17:14,938: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:17:14,944: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-07 20:17:16,034: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:17:16,036: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:17:20,050: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:17:20,060: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-07 20:17:30,682: INFO Request: User: admin : GET /
+2024-01-07 20:17:30,684: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:17:30,690: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:17:30,705: INFO Response: User: admin : GET / 200
+2024-01-07 20:20:26,039: INFO Request: User: admin : GET /
+2024-01-07 20:20:26,059: INFO Response: User: admin : GET / 200
+2024-01-07 20:20:50,793: INFO Request: User: admin : GET /
+2024-01-07 20:20:50,813: INFO Response: User: admin : GET / 200
+2024-01-07 20:20:54,822: INFO Request: User: admin : GET /checkin/1
+2024-01-07 20:20:54,898: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 20:21:00,174: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:21:00,182: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-07 20:21:00,487: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:21:00,490: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:21:05,304: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:21:05,312: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-07 20:21:05,647: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:21:05,651: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:21:10,441: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:21:10,449: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-07 20:21:13,099: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:21:13,102: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:21:13,194: INFO Request: User: admin : GET /
+2024-01-07 20:21:13,213: INFO Response: User: admin : GET / 200
+2024-01-07 20:21:13,822: INFO Request: User: admin : GET /checkin/1
+2024-01-07 20:21:13,883: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 20:21:19,141: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:21:19,149: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-07 20:21:19,472: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:21:19,475: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:21:24,227: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:21:24,234: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-07 20:21:24,555: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:21:24,557: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:21:29,261: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:21:29,269: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-07 20:21:30,560: INFO Request: User: admin : GET /
+2024-01-07 20:21:30,566: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:21:30,569: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:21:30,586: INFO Response: User: admin : GET / 200
+2024-01-07 20:21:57,631: INFO Request: User: admin : GET /
+2024-01-07 20:21:57,676: INFO Response: User: admin : GET / 200
+2024-01-07 20:21:58,649: INFO Request: User: admin : GET /checkin/1
+2024-01-07 20:21:58,731: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 20:22:04,048: INFO Request: User: admin : GET /checkin/1
+2024-01-07 20:22:04,078: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 20:22:09,311: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:22:09,319: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-07 20:22:10,321: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:22:10,324: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:22:14,460: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:22:14,468: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-07 20:22:15,742: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:22:15,747: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:22:15,748: INFO Request: User: admin : GET /
+2024-01-07 20:22:15,769: INFO Response: User: admin : GET / 200
+2024-01-07 20:22:30,105: INFO Request: User: admin : GET /
+2024-01-07 20:22:30,128: INFO Response: User: admin : GET / 200
+2024-01-07 20:22:31,669: INFO Request: User: admin : GET /checkin/1
+2024-01-07 20:22:31,748: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 20:22:37,251: INFO Request: User: admin : GET /checkin/1
+2024-01-07 20:22:37,282: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 20:22:42,609: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:22:42,616: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-07 20:22:42,923: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:22:42,925: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:22:47,580: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:22:47,587: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-07 20:22:48,556: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:22:48,560: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:22:48,581: INFO Request: User: admin : GET /
+2024-01-07 20:22:48,595: INFO Response: User: admin : GET / 200
+2024-01-07 20:22:59,104: INFO Request: User: admin : GET /checkin/1
+2024-01-07 20:22:59,158: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 20:23:03,963: INFO Request: User: admin : GET /checkin/1
+2024-01-07 20:23:03,995: INFO Response: User: admin : GET /checkin/1 200
+2024-01-07 20:23:09,198: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:23:09,205: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-07 20:23:09,531: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:23:09,534: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:23:14,433: INFO Request: User: admin : GET /check-file-status/1
+2024-01-07 20:23:14,441: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-07 20:23:15,552: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-07 20:23:15,555: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-07 20:23:15,671: INFO Request: User: admin : GET /
+2024-01-07 20:23:15,690: INFO Response: User: admin : GET / 200
+2024-01-07 20:30:39,723: INFO D:\django projects\files_test\files_test\configurations.py changed, reloading.
+2024-01-07 21:27:57,170: INFO Watching for file changes with StatReloader
+2024-01-07 21:27:58,367: INFO Request: User: admin : GET /add-file/
+2024-01-07 21:27:58,710: INFO Response: User: admin : GET /add-file/ 200
+2024-01-07 21:27:59,092: INFO Request: User: admin : GET /__reload__/events/
+2024-01-07 21:27:59,093: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-07 21:28:09,414: INFO Request: User: admin : POST /add-file/
+2024-01-07 21:28:09,457: INFO Response: User: admin : POST /add-file/ 302
+2024-01-07 21:28:09,557: INFO Request: User: admin : GET /
+2024-01-07 21:28:09,590: INFO Response: User: admin : GET / 200
+2024-01-07 21:28:12,064: INFO Request: User: admin : GET /add-file/
+2024-01-07 21:28:12,074: INFO Response: User: admin : GET /add-file/ 200
+2024-01-07 21:28:20,864: INFO Request: User: admin : POST /add-file/
+2024-01-07 21:28:20,873: INFO Response: User: admin : POST /add-file/ 302
+2024-01-07 21:28:20,961: INFO Request: User: admin : GET /
+2024-01-07 21:28:20,990: INFO Response: User: admin : GET / 200
+2024-01-07 21:28:35,945: INFO D:\django projects\files_test\files\views.py changed, reloading.
+2024-01-07 21:28:37,769: INFO Watching for file changes with StatReloader
+2024-01-07 21:28:38,495: INFO Request: User: admin : GET /__reload__/events/
+2024-01-07 21:28:38,495: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-07 21:28:38,625: INFO Request: User: admin : GET /
+2024-01-07 21:28:38,664: INFO Response: User: admin : GET / 200
+2024-01-07 21:28:38,977: INFO Request: User: admin : GET /favicon.ico
+2024-01-07 21:28:38,977: INFO Response: User: admin : GET /favicon.ico 200
+2024-01-07 21:28:40,318: INFO Request: User: admin : GET /add-file/
+2024-01-07 21:28:40,338: INFO Response: User: admin : GET /add-file/ 200
+2024-01-07 21:28:44,672: INFO Request: User: admin : POST /add-file/
+2024-01-07 21:28:44,677: INFO Response: User: admin : POST /add-file/ 302
+2024-01-07 21:28:44,770: INFO Request: User: admin : GET /
+2024-01-07 21:28:44,795: INFO Response: User: admin : GET / 200
+2024-01-07 21:28:56,090: INFO Request: User: admin : GET /
+2024-01-07 21:28:56,118: INFO Response: User: admin : GET / 200
+2024-01-07 21:28:56,280: INFO Request: User: admin : GET /favicon.ico
+2024-01-07 21:28:56,280: INFO Response: User: admin : GET /favicon.ico 200

@@ -73,7 +73,8 @@ class FileService:
 
     def check_file_status(self, id):
         file = File.objects.get(id=id)
-        return file
+        is_free = not FileLock.objects.filter(file=file).exists()
+        return is_free
 
     def downloadFile(self, id):
         file = File.objects.get(id=id)

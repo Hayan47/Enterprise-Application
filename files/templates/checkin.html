@@ -30,18 +30,18 @@
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
-//     function checkFileStatus(fileId) {
-//     $.ajax({
-//         url: '/check-file-status/' + fileId, 
-//         success: function(response) {
-//             if (response.is_free) {
-//                 alert('File has been automatically checked out.');
-//                 window.location.href = '/';  // Redirect to home
-//                 clearInterval(intervalId);  // Stop polling
-//             }
-//         }
-//     });
-// }
+    function checkFileStatus(fileId) {
+    $.ajax({
+        url: '/check-file-status/' + fileId, 
+        success: function(response) {
+            if (response.is_free) {
+                alert('File has been automatically checked out.');
+                window.location.href = '/';  // Redirect to home
+                clearInterval(intervalId);  // Stop polling
+            }
+        }
+    });
+}
 
 var fileId = "{{ file.id }}";  
 var intervalId = setInterval(function() { checkFileStatus(fileId); }, 5000);  // Poll every 5 seconds
@@ -50,8 +50,11 @@ var intervalId = setInterval(function() { checkFileStatus(fileId); }, 5000);  //
     (function() {
       var minutesLabel = document.getElementById("timer-minutes");
       var secondsLabel = document.getElementById("timer-seconds");
-      var totalSeconds = 15; 
-    
+      var lockedAtTimestamp = "{{ file.filelock.locked_at|date:'U' }}";
+      var nowTimestamp = Math.floor(Date.now() / 1000);
+      var totalSeconds = Math.floor((parseInt(lockedAtTimestamp) + 15 - nowTimestamp));
+      console.log("lock: :" + lockedAtTimestamp);
+      console.log("now: :" + nowTimestamp);
       setInterval(setTime, 1000);
     
       function setTime() {

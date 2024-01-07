@@ -9,6 +9,7 @@ from django.contrib import messages
 from django_celery_beat.models import PeriodicTask, ClockedSchedule
 from datetime import timedelta
 from .services import FileService, GroupService
+from django.forms import ValidationError
 
 logger = logging.getLogger(__name__) # files.views
 
@@ -53,8 +54,8 @@ def checkin(request, id):
 
 
 def check_file_status(request, id):
-    file = file_service.check_file_status(id)
-    return JsonResponse({'is_free': file.is_free})
+    is_free = file_service.check_file_status(id)
+    return JsonResponse({'is_free': is_free})
 
 
 @login_required
@@ -63,10 +64,14 @@ def addFile(request):
     if request.method == 'POST': 
         form = FileForm(request.POST, request.FILES)
         if form.is_valid():
-            file = form.save(commit=False)
-            file.owner = request.user
-            form.save()
-            return redirect('home')  
+            try:
+                file = form.save(commit=False)
+                file.owner = request.user
+                form.save()
+                return redirect('home')
+            except ValidationError as e:
+                messages.error(request, e)
+                return redirect('home')
     return render(request, 'file_form.html', {'form': form})
 
 

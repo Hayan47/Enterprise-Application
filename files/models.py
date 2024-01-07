@@ -2,7 +2,9 @@ from django.db import models
 from django.contrib.auth.models import User, Group
 from django.core.exceptions import ValidationError
 from django.contrib import messages
+from django.conf import settings
 
+MAX_UPLOAD_FILES = settings.MAX_UPLOAD_FILES
 
 def delete_user_with_filelock_check(self):
     if FileLock.objects.filter(user=self).exists():
@@ -48,12 +50,16 @@ class File(models.Model):
 
     def unlock_file(self, user):
         FileLock.objects.filter(file=self, user=user).delete()
+    
+    def save(self, *args, **kwargs):
+        # Count the number of files the user has already uploaded
+        user_file_count = File.objects.filter(owner=self.owner).count()
 
-# class UserProfile(models.Model):
-#     user = models.OneToOneField(User, on_delete=models.CASCADE)
-#     files = models.ManyToManyField(File)
-#     groups = models.ManyToManyField(Group)
-
+        # Check if the count exceeds the maximum allowed
+        if user_file_count >= MAX_UPLOAD_FILES:
+            raise ValidationError(f"Cannot upload more than {MAX_UPLOAD_FILES} files.")
+        
+        super(File, self).save(*args, **kwargs)
 
 class FileLock(models.Model):
     file = models.OneToOneField(File, on_delete=models.CASCADE)
