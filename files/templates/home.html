@@ -12,7 +12,7 @@
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">owner: {{file.owner}}</p>
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">group: {{file.group}}</p>
                 <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">created: {{file.created}}</p>  
-                {% if file.is_free %}
+                {% if not file.filelock %}
                 <p class="mb-2 text-1xl font-bold tracking-tight text-gray-900 dark:text-white">
                     <svg width="20" height="20" viewBox="0 0 20 20">
                         <path d="M10 20c5.523 0 10-4.477 10-10S15.523 0 10 0 0 4.477 0 10s4.477 10 10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm5-9l-5-3L5 11V8l5 3 5-3v3z" fill="#00cc44"/> 

@@ -30,28 +30,27 @@
 </div>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
-    function checkFileStatus(fileId) {
-    $.ajax({
-        url: '/check-file-status/' + fileId,  // Update with the correct URL
-        success: function(response) {
-            console.log('RUNNN');
-            if (response.is_free) {
-                alert('File has been automatically checked out.');
-                window.location.href = '/';  // Redirect to home
-                clearInterval(intervalId);  // Stop polling
-            }
-        }
-    });
-}
+//     function checkFileStatus(fileId) {
+//     $.ajax({
+//         url: '/check-file-status/' + fileId, 
+//         success: function(response) {
+//             if (response.is_free) {
+//                 alert('File has been automatically checked out.');
+//                 window.location.href = '/';  // Redirect to home
+//                 clearInterval(intervalId);  // Stop polling
+//             }
+//         }
+//     });
+// }
 
-var fileId = "{{ file.id }}";  // Replace with actual file ID
+var fileId = "{{ file.id }}";  
 var intervalId = setInterval(function() { checkFileStatus(fileId); }, 5000);  // Poll every 5 seconds
 </script>
 <script>
     (function() {
       var minutesLabel = document.getElementById("timer-minutes");
       var secondsLabel = document.getElementById("timer-seconds");
-      var totalSeconds = 15;  // Change this to the desired total seconds (e.g., 300 for 5 minutes)
+      var totalSeconds = 15; 
     
       setInterval(setTime, 1000);
     

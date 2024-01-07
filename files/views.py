@@ -12,10 +12,11 @@ from .services import FileService, GroupService
 
 logger = logging.getLogger(__name__) # files.views
 
+file_service = FileService()
+group_service = GroupService()
 
 @login_required
 def home(request):
-    file_service = FileService()
     files = file_service.home()
     if request.method == 'POST':
         bulkCheckin(request=request)
@@ -25,7 +26,6 @@ def home(request):
 @login_required
 def bulkCheckin(request):
     selected_files_ids= request.POST.getlist('selected_files')
-    file_service = FileService()
     file_service.set_user(request.user)
     try:
         file = file_service.bulkCheckin(selected_files_ids)
@@ -36,7 +36,6 @@ def bulkCheckin(request):
 
 @login_required
 def checkin(request, id):
-        file_service = FileService()
         file_service.set_user(request.user)
         try:
             file = file_service.checkinFile(id)
@@ -54,7 +53,6 @@ def checkin(request, id):
 
 
 def check_file_status(request, id):
-    file_service = FileService()
     file = file_service.check_file_status(id)
     return JsonResponse({'is_free': file.is_free})
 
@@ -74,7 +72,6 @@ def addFile(request):
 
 @login_required
 def downloadFile(request, id):
-    file_service = FileService()
     response = file_service.downloadFile(id)
     return response
 
@@ -88,13 +85,11 @@ def deleteFile(request, id):
 
 @login_required
 def generateReport(request, id):
-    file_service = FileService()
     response = file_service.generateReport(id)
     return response
 
 @login_required
 def groupCheckin(request, id):
-    group_service = GroupService()
     group_service.set_user(request.user)
     try:
         group, files, users = group_service.groupCheckin(id)
