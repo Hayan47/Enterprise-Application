@@ -1,26 +1,16 @@
-from locust import HttpUser, TaskSet, task
+from locust import HttpUser, TaskSet, task, between
 import random
 
-class UserActions(TaskSet):
-    def on_start(self):
-        self.login()
+class UserActions(HttpUser):
+    wait_time = between(1, 2)
 
-    def login(self):
-        # login to the application
-        response = self.client.get('/login/')
-        csrftoken = response.cookies['csrftoken']
-        self.client.post('/login/',
-                         {'username': 'admin', 'password': 'admin'},
-                         headers={'X-CSRFToken': csrftoken})
-        
-    @task(1)
+
+    # def on_start(self):
+    #     self.client.post("/login/", {"username": "admin", "password": "admin"})
+
+    @task
     def home(self):
-        self.client.get('/')
-
-class LoadTest(HttpUser):
-    task_set = [UserActions]
-    min_wait = 0
-    max_wait = 0
+        self.client.get("/")
     
 
     # @task 

@@ -1,6 +1,6 @@
 import os
 
-os.environ.setdefault('DB_ENGINE', 'postgresql') # change database sqlite3 / postgresql
+os.environ.setdefault('DB_ENGINE', 'sqlite3') # change database sqlite3 / postgresql
 DATABASE_ENGINE = os.environ.get('DB_ENGINE')
 
 if DATABASE_ENGINE == 'sqlite3':
