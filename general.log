@@ -1,0 +1,276 @@
+2024-01-08 13:58:24,063: INFO Watching for file changes with StatReloader
+2024-01-08 13:58:48,532: INFO Request: User: AnonymousUser : GET /
+2024-01-08 13:58:48,558: INFO Response: User: AnonymousUser : GET / 302
+2024-01-08 13:58:49,389: INFO Request: User: AnonymousUser : GET /login/
+2024-01-08 13:58:49,822: INFO Response: User: AnonymousUser : GET /login/ 200
+2024-01-08 13:58:51,856: INFO Request: User: AnonymousUser : GET /__reload__/events/
+2024-01-08 13:58:51,856: INFO Response: User: AnonymousUser : GET /__reload__/events/ 200
+2024-01-08 13:59:02,244: INFO Request: User: AnonymousUser : POST /login/
+2024-01-08 13:59:04,653: INFO Response: User: admin : POST /login/ 302
+2024-01-08 13:59:04,911: INFO Request: User: admin : GET /
+2024-01-08 13:59:05,063: INFO Response: User: admin : GET / 200
+2024-01-08 13:59:05,257: INFO Request: User: admin : GET /__reload__/events/
+2024-01-08 13:59:05,257: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-08 17:20:21,578: INFO Watching for file changes with StatReloader
+2024-01-08 17:20:30,447: INFO Request: User: admin : GET /
+2024-01-08 17:20:31,203: INFO Response: User: admin : GET / 200
+2024-01-08 17:20:32,356: INFO Request: User: admin : GET /__reload__/events/
+2024-01-08 17:20:32,356: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-08 17:20:40,203: INFO Request: User: admin : GET /admin/
+2024-01-08 17:20:40,396: INFO Response: User: admin : GET /admin/ 200
+2024-01-08 17:20:42,775: INFO Request: User: admin : GET /
+2024-01-08 17:20:42,775: INFO Response: User: admin : GET / 200
+2024-01-08 17:20:42,887: INFO Request: User: admin : GET /__reload__/events/
+2024-01-08 17:20:42,887: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-08 17:20:43,236: INFO Request: User: admin : GET /add-file/
+2024-01-08 17:20:43,453: INFO Response: User: admin : GET /add-file/ 200
+2024-01-08 17:20:44,112: INFO Request: User: admin : GET /add-group/
+2024-01-08 17:20:44,138: INFO Response: User: admin : GET /add-group/ 200
+2024-01-08 17:20:45,338: INFO Request: User: admin : GET /all-groups/
+2024-01-08 17:20:45,346: INFO Response: User: admin : GET /all-groups/ 200
+2024-01-08 17:20:46,984: INFO Request: User: admin : GET /add-file/
+2024-01-08 17:20:46,984: INFO Response: User: admin : GET /add-file/ 200
+2024-01-08 17:20:48,145: INFO Request: User: admin : GET /
+2024-01-08 17:20:48,145: INFO Response: User: admin : GET / 200
+2024-01-08 17:24:55,484: INFO E:\ITE\Enterprise Applications\Enterprise-Application\source_safe\settings.py changed, reloading.
+2024-01-08 17:24:57,050: INFO Watching for file changes with StatReloader
+2024-01-08 17:24:57,710: INFO Request: User: admin : GET /__reload__/events/
+2024-01-08 17:24:57,710: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-08 17:24:57,858: INFO Request: User: admin : GET /
+2024-01-08 17:24:57,873: INFO Response: User: admin : GET / 200
+2024-01-08 17:25:35,053: INFO Request: User: admin : GET /
+2024-01-08 17:25:35,064: INFO Response: User: admin : GET / 200
+2024-01-08 17:25:58,696: INFO Request: User: admin : GET /
+2024-01-08 17:25:58,704: INFO Response: User: admin : GET / 200
+2024-01-08 17:26:01,616: INFO Request: User: admin : GET /add-file/
+2024-01-08 17:26:01,629: INFO Response: User: admin : GET /add-file/ 200
+2024-01-08 17:26:05,401: INFO Request: User: admin : POST /add-file/
+2024-01-08 17:26:05,558: INFO Response: User: admin : POST /add-file/ 302
+2024-01-08 17:26:05,613: INFO Request: User: admin : GET /
+2024-01-08 17:26:05,621: INFO Response: User: admin : GET / 200
+2024-01-08 17:26:06,338: INFO Request: User: admin : GET /checkin/1
+2024-01-08 17:26:06,732: ERROR Internal Server Error: /checkin/1
+Traceback (most recent call last):
+  File "E:\ITE\Enterprise Applications\Enterprise-Application\venv\Lib\site-packages\django\template\base.py", line 505, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'render_field'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\ITE\Enterprise Applications\Enterprise-Application\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\ITE\Enterprise Applications\Enterprise-Application\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\ITE\Enterprise Applications\Enterprise-Application\venv\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\ITE\Enterprise Applications\Enterprise-Application\files\views.py", line 53, in checkin
+    return render(request, 'checkin.html', {'form': form, 'file':file})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\ITE\Enterprise Applications\Enterprise-Application\venv\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\ITE\Enterprise Applications\Enterprise-Application\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\ITE\Enterprise Applications\Enterprise-Application\venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\ITE\Enterprise Applications\Enterprise-Application\venv\Lib\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\ITE\Enterprise Applications\Enterprise-Application\venv\Lib\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\ITE\Enterprise Applications\Enterprise-Application\venv\Lib\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\ITE\Enterprise Applications\Enterprise-Application\venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\ITE\Enterprise Applications\Enterprise-Application\venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "E:\ITE\Enterprise Applications\Enterprise-Application\venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\ITE\Enterprise Applications\Enterprise-Application\venv\Lib\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "E:\ITE\Enterprise Applications\Enterprise-Application\venv\Lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "E:\ITE\Enterprise Applications\Enterprise-Application\venv\Lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\ITE\Enterprise Applications\Enterprise-Application\venv\Lib\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "E:\ITE\Enterprise Applications\Enterprise-Application\venv\Lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "E:\ITE\Enterprise Applications\Enterprise-Application\venv\Lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\ITE\Enterprise Applications\Enterprise-Application\venv\Lib\site-packages\django\template\loader_tags.py", line 232, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\ITE\Enterprise Applications\Enterprise-Application\venv\Lib\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "E:\ITE\Enterprise Applications\Enterprise-Application\venv\Lib\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\ITE\Enterprise Applications\Enterprise-Application\venv\Lib\site-packages\django\template\defaulttags.py", line 953, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\ITE\Enterprise Applications\Enterprise-Application\venv\Lib\site-packages\django\template\base.py", line 507, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "E:\ITE\Enterprise Applications\Enterprise-Application\venv\Lib\site-packages\django\template\base.py", line 558, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 16: 'render_field', expected 'elif', 'else' or 'endif'. Did you forget to register or load this tag?
+2024-01-08 17:26:06,748: INFO Response: User: admin : GET /checkin/1 500
+2024-01-08 17:26:13,946: INFO Request: User: admin : GET /checkin/1
+2024-01-08 17:26:13,978: INFO Response: User: admin : GET /checkin/1 200
+2024-01-08 17:26:19,894: INFO Request: User: admin : GET /check-file-status/1
+2024-01-08 17:26:19,894: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-08 17:26:20,908: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-08 17:26:20,908: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-08 17:26:25,029: INFO Request: User: admin : GET /check-file-status/1
+2024-01-08 17:26:25,029: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-08 17:26:26,077: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-08 17:26:26,086: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-08 17:26:30,104: INFO Request: User: admin : GET /check-file-status/1
+2024-01-08 17:26:30,104: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-08 17:26:31,182: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-08 17:26:31,186: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-08 17:26:35,225: INFO Request: User: admin : GET /check-file-status/1
+2024-01-08 17:26:35,225: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-08 17:26:36,275: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-08 17:26:36,275: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-08 17:26:40,325: INFO Request: User: admin : GET /check-file-status/1
+2024-01-08 17:26:40,325: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-08 17:26:41,384: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-08 17:26:41,384: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-08 17:26:45,436: INFO Request: User: admin : GET /check-file-status/1
+2024-01-08 17:26:45,436: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-08 17:26:46,507: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-08 17:26:46,517: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-08 17:26:50,562: INFO Request: User: admin : GET /check-file-status/1
+2024-01-08 17:26:50,571: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-08 17:26:51,617: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-08 17:26:51,626: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-08 17:26:55,683: INFO Request: User: admin : GET /check-file-status/1
+2024-01-08 17:26:55,685: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-08 17:26:56,729: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-08 17:26:56,733: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-08 17:27:00,783: INFO Request: User: admin : GET /check-file-status/1
+2024-01-08 17:27:00,790: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-08 17:27:01,826: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-08 17:27:01,841: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-08 17:27:05,892: INFO Request: User: admin : GET /check-file-status/1
+2024-01-08 17:27:05,892: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-08 17:27:06,942: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-08 17:27:06,949: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-08 17:27:10,977: INFO Request: User: admin : GET /check-file-status/1
+2024-01-08 17:27:10,980: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-08 17:27:12,015: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-08 17:27:12,015: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-08 17:27:16,082: INFO Request: User: admin : GET /check-file-status/1
+2024-01-08 17:27:16,085: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-08 17:27:16,123: INFO Request: User: admin : GET /checkin/1
+2024-01-08 17:27:16,144: INFO Response: User: admin : GET /checkin/1 200
+2024-01-08 17:27:18,443: INFO Request: User: admin : GET /add-group/
+2024-01-08 17:27:18,460: INFO Response: User: admin : GET /add-group/ 200
+2024-01-08 17:27:29,225: INFO Request: User: admin : GET /all-groups/
+2024-01-08 17:27:29,227: INFO Response: User: admin : GET /all-groups/ 200
+2024-01-08 17:27:30,905: INFO Request: User: admin : GET /add-group/
+2024-01-08 17:27:30,920: INFO Response: User: admin : GET /add-group/ 200
+2024-01-08 17:27:33,681: INFO Request: User: admin : POST /add-group/
+2024-01-08 17:27:33,889: INFO Response: User: admin : POST /add-group/ 302
+2024-01-08 17:27:33,948: INFO Request: User: admin : GET /all-groups/
+2024-01-08 17:27:33,954: INFO Response: User: admin : GET /all-groups/ 200
+2024-01-08 17:27:34,949: INFO Request: User: admin : GET /all-groups/
+2024-01-08 17:27:34,958: INFO Response: User: admin : GET /all-groups/ 200
+2024-01-08 17:27:35,699: INFO Request: User: admin : GET /group-checkin/1
+2024-01-08 17:27:35,712: INFO Response: User: admin : GET /group-checkin/1 200
+2024-01-08 17:27:58,996: INFO Request: User: admin : GET /add-group/
+2024-01-08 17:27:58,996: INFO Response: User: admin : GET /add-group/ 200
+2024-01-08 17:28:11,071: INFO Request: User: admin : GET /add-group/
+2024-01-08 17:28:11,078: INFO Response: User: admin : GET /add-group/ 200
+2024-01-08 17:55:54,394: INFO Request: User: admin : GET /
+2024-01-08 17:55:54,403: INFO Response: User: admin : GET / 200
+2024-01-08 18:12:23,246: INFO E:\ITE\Enterprise Applications\Enterprise-Application\files\services.py changed, reloading.
+2024-01-08 18:12:25,711: INFO Watching for file changes with StatReloader
+2024-01-08 18:12:26,443: INFO Request: User: admin : GET /__reload__/events/
+2024-01-08 18:12:26,443: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-08 18:12:28,982: INFO E:\ITE\Enterprise Applications\Enterprise-Application\files\services.py changed, reloading.
+2024-01-08 18:12:31,110: INFO Watching for file changes with StatReloader
+2024-01-08 18:12:31,772: INFO Request: User: admin : GET /__reload__/events/
+2024-01-08 18:12:31,773: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-08 18:12:38,777: INFO E:\ITE\Enterprise Applications\Enterprise-Application\files\services.py changed, reloading.
+2024-01-08 18:12:41,169: INFO Watching for file changes with StatReloader
+2024-01-08 18:12:41,859: INFO Request: User: admin : GET /__reload__/events/
+2024-01-08 18:12:41,859: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-08 18:16:42,211: INFO Watching for file changes with StatReloader
+2024-01-08 18:16:42,947: INFO Request: User: admin : GET /__reload__/events/
+2024-01-08 18:16:42,948: INFO Response: User: admin : GET /__reload__/events/ 200
+2024-01-08 18:16:43,815: INFO Request: User: admin : GET /
+2024-01-08 18:16:43,844: INFO Response: User: admin : GET / 200
+2024-01-08 18:16:44,046: INFO Request: User: admin : GET /favicon.ico
+2024-01-08 18:16:44,048: INFO Response: User: admin : GET /favicon.ico 200
+2024-01-08 18:16:45,807: INFO Request: User: admin : GET /checkin/1
+2024-01-08 18:16:46,006: INFO Response: User: admin : GET /checkin/1 200
+2024-01-08 18:16:51,280: INFO Request: User: admin : GET /check-file-status/1
+2024-01-08 18:16:51,286: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-08 18:16:51,564: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-08 18:16:51,576: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-08 18:16:57,008: INFO Request: User: admin : GET /check-file-status/1
+2024-01-08 18:16:57,014: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-08 18:16:58,090: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-08 18:16:58,102: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-08 18:17:02,252: INFO Request: User: admin : GET /check-file-status/1
+2024-01-08 18:17:02,256: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-08 18:17:03,307: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-08 18:17:03,325: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-08 18:17:07,275: INFO Request: User: admin : GET /check-file-status/1
+2024-01-08 18:17:07,282: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-08 18:17:07,546: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-08 18:17:07,558: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-08 18:17:12,286: INFO Request: User: admin : GET /check-file-status/1
+2024-01-08 18:17:12,292: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-08 18:17:12,561: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-08 18:17:12,572: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-08 18:17:17,295: INFO Request: User: admin : GET /check-file-status/1
+2024-01-08 18:17:17,301: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-08 18:17:17,571: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-08 18:17:17,582: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-08 18:17:22,303: INFO Request: User: admin : GET /check-file-status/1
+2024-01-08 18:17:22,309: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-08 18:17:22,582: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-08 18:17:22,594: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-08 18:17:27,312: INFO Request: User: admin : GET /check-file-status/1
+2024-01-08 18:17:27,318: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-08 18:17:27,590: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-08 18:17:27,601: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-08 18:17:32,329: INFO Request: User: admin : GET /check-file-status/1
+2024-01-08 18:17:32,336: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-08 18:17:32,611: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-08 18:17:32,618: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-08 18:17:37,325: INFO Request: User: admin : GET /check-file-status/1
+2024-01-08 18:17:37,332: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-08 18:17:37,607: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-08 18:17:37,619: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-08 18:17:42,347: INFO Request: User: admin : GET /check-file-status/1
+2024-01-08 18:17:42,353: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-08 18:17:42,637: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-08 18:17:42,648: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-08 18:17:47,350: INFO Request: User: admin : GET /check-file-status/1
+2024-01-08 18:17:47,356: INFO Response: User: admin : GET /check-file-status/1 200
+2024-01-08 18:17:49,631: INFO Request: User: admin : GET /__debug__/history_sidebar/
+2024-01-08 18:17:49,639: INFO Response: User: admin : GET /__debug__/history_sidebar/ 200
+2024-01-08 18:17:49,640: INFO Request: User: admin : GET /
+2024-01-08 18:17:49,657: INFO Response: User: admin : GET / 200
+2024-01-08 18:17:49,800: INFO Request: User: admin : GET /favicon.ico
+2024-01-08 18:17:49,800: INFO Response: User: admin : GET /favicon.ico 200

@@ -2,9 +2,9 @@ from __future__ import absolute_import, unicode_literals
 import os
 from celery import Celery
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'files_test.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'source_safe.settings')
 
-app = Celery('files_test')
+app = Celery('source_safe')
 
 app.config_from_object('django.conf:settings', namespace='CELERY')
 

@@ -24,7 +24,7 @@
         </div>
     </form>
     <div id="timer-widget" class="text-4xl font-bold text-white">
-        <span id="timer-minutes" class="mr-1">00</span>:<span id="timer-seconds">15</span>
+        <span id="timer-minutes" class="mr-1">01</span>:<span id="timer-seconds">00</span>
     </div>
 </ul>
 </div>
@@ -52,7 +52,7 @@ var intervalId = setInterval(function() { checkFileStatus(fileId); }, 5000);  //
       var secondsLabel = document.getElementById("timer-seconds");
       var lockedAtTimestamp = "{{ file.filelock.locked_at|date:'U' }}";
       var nowTimestamp = Math.floor(Date.now() / 1000);
-      var totalSeconds = Math.floor((parseInt(lockedAtTimestamp) + 15 - nowTimestamp));
+      var totalSeconds = Math.floor((parseInt(lockedAtTimestamp) + 60 - nowTimestamp));
       console.log("lock: :" + lockedAtTimestamp);
       console.log("now: :" + nowTimestamp);
       setInterval(setTime, 1000);

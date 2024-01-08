@@ -28,7 +28,7 @@ class FileService:
             file.lock_file(self.user)
             lock = file.filelock
             # raise Exception("Something went wrong!") #for testing the transaction
-            clocked, _ = ClockedSchedule.objects.get_or_create(clocked_time=lock.locked_at + timedelta(seconds=15))
+            clocked, _ = ClockedSchedule.objects.get_or_create(clocked_time=lock.locked_at + timedelta(seconds=60))
             task_name = f'files.tasks.automatic_check_out_{lock.id}'
             mytask = PeriodicTask.objects.create(
                 clocked=clocked,
@@ -61,7 +61,7 @@ class FileService:
                 lock = FileLock.objects.get(file=file, user=self.user)
                 Checkin.objects.create(file=file, user=self.user)
                 # Schedule the automatic check-out task after one hour
-                clocked, _ = ClockedSchedule.objects.get_or_create(clocked_time=lock.locked_at + timedelta(seconds=15))
+                clocked, _ = ClockedSchedule.objects.get_or_create(clocked_time=lock.locked_at + timedelta(seconds=60))
                 task_name = f'files.tasks.automatic_check_out_{lock.id}' 
                 mytask = PeriodicTask.objects.create(
                     clocked=clocked,
