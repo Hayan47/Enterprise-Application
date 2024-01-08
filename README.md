@@ -13,14 +13,12 @@ A platform that let users share and edit files organized in groups regarding Con
 1. Clone the repository:
    `git clone https://github.com/Hayan47/Enterprise-Application.git`
 
-
-2. Navigate to the project directory:
-  `cd yourprojectname`
-
+2. Create and activate a virtual environment:
+   `python -m venv venv`
+   `venv\Scripts\activate`
 
 3. Install Python dependencies:
   `pip install -r requirements.txt`
-
 
 4. Install Node.js dependencies (including Tailwind CSS):
   `npm install`
