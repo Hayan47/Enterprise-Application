@@ -34,6 +34,10 @@ Before you begin, ensure you have the following prerequisites installed on your 
    Download and install Redis from [this link](https://github.com/tporadowski/redis/releases).
    Choose version 5.0.10.
 
+5. **Switch to PostgreSQL (Optional):**
+   If you want to use PostgreSQL instead of the default database, update the `Database Engine` in `source_safe/configurations.py` to `"postgresql"`. Make sure to install PostgreSQL from [this link](https://www.postgresql.org/download/).
+   After installing PostgreSQL, create a database called 'mydatabase', user 'postgres', password 'admin' on port 5432.
+   
 ## Running the Project
 
 Follow these steps to run the Source Safe project:
